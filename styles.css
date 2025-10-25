@@ -44,15 +44,18 @@ header {
 }
 
 main {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    padding: 3rem;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .hero {
     text-align: center;
-    padding: 2rem 0 3rem;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
 }
 
 .headline {
@@ -109,9 +112,11 @@ main {
 }
 
 .section {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 2px solid #e2e8f0;
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
 }
 
 .section h3 {
@@ -188,8 +193,12 @@ footer {
         font-size: 1rem;
     }
 
-    main {
-        padding: 2rem 1.5rem;
+    .hero {
+        padding: 2rem;
+    }
+
+    .section {
+        padding: 1.5rem;
     }
 
     .cta-group {
