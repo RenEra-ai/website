@@ -47,10 +47,12 @@ header {
 }
 
 .logo {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    height: 80px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    opacity: 0.85;
 }
 
 main {
