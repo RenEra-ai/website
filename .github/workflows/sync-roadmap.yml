@@ -1,0 +1,44 @@
+name: Sync roadmap
+
+on:
+  schedule:
+    # Daily at ~06:17 UTC. GitHub cron may run a few minutes late under load.
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-roadmap
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Sync roadmap.json from GitHub Project
+        env:
+          # Fine-grained PAT with read:project on the RenEra-ai org.
+          # Stored as repo secret PROJECTS_READ_TOKEN.
+          GH_TOKEN: ${{ secrets.PROJECTS_READ_TOKEN }}
+        run: python3 scripts/sync-roadmap.py
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- roadmap.json; then
+            echo "No roadmap changes."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add roadmap.json
+          git commit -m "chore: sync roadmap from GitHub Project"
+          git push

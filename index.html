@@ -3,52 +3,359 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="RenEra.ai - AI Solutions for the Future">
-    <title>RenEra.ai - AI Solutions for the Future</title>
+    <meta name="description" content="RenEra.ai — AI-native tooling for the next era of system integration. Building the Boomi MCP server and an archetype-driven integration authoring framework.">
+    <meta name="theme-color" content="#0a0612">
+    <meta property="og:title" content="RenEra.ai — The Renovations Era of Integration">
+    <meta property="og:description" content="AI-native tooling for the next era of system integration.">
+    <meta property="og:image" content="logo.png">
+    <title>RenEra.ai — The Renovations Era of Integration</title>
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="logo.png" alt="RenEra.ai" class="logo">
-        </header>
-
-        <main>
-            <section class="hero">
-                <h2 class="headline">The Renovations Era of Integration</h2>
-                <p class="tagline">Empowering innovation through artificial intelligence</p>
-                <div class="cta-group">
-                    <a href="#contact" class="btn btn-primary">Get Started</a>
-                    <a href="#about" class="btn btn-secondary">Learn More</a>
-                </div>
-            </section>
-
-            <section id="about" class="section">
-                <h3>About RenEra</h3>
-                <p>We're building the next generation of AI-powered solutions to transform how businesses operate and innovate.</p>
-            </section>
-
-            <section id="products" class="section">
-                <h3>Our Products</h3>
-                <p>Explore our suite of AI-powered integration solutions:</p>
-                <div class="product-links">
-                    <a href="https://boomi.renera.ai" class="product-link" target="_blank">
-                        <strong>Boomi MCP Server</strong>
-                        <span>Secure credential storage for Boomi MCP server integration</span>
-                    </a>
-                </div>
-            </section>
-
-            <section id="contact" class="section">
-                <h3>Get in Touch</h3>
-                <p>Interested in learning more? Reach out to us at <a href="mailto:hello@renera.ai">hello@renera.ai</a></p>
-            </section>
-        </main>
-
-        <footer>
-            <p>&copy; 2025 RenEra.ai. All rights reserved.</p>
-        </footer>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="mesh" aria-hidden="true">
+        <span class="mesh-blob mesh-blob--1"></span>
+        <span class="mesh-blob mesh-blob--2"></span>
+        <span class="mesh-blob mesh-blob--3"></span>
     </div>
+
+    <header class="nav" role="banner">
+        <div class="nav__inner">
+            <a class="nav__brand" href="/" aria-label="RenEra.ai home">
+                <img src="logo.png" alt="RenEra.ai" class="nav__logo">
+            </a>
+            <nav class="nav__links" aria-label="Primary">
+                <a href="#manifesto">Manifesto</a>
+                <a href="#product">Product</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <a class="nav__cta" href="https://github.com/RenEra-ai" target="_blank" rel="noopener">
+                <span>GitHub</span>
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M4.5 3.5h6a1 1 0 0 1 1 1v6a.75.75 0 0 1-1.5 0V6.31L4.78 12.03a.75.75 0 1 1-1.06-1.06L9.44 5.25H5.5a.75.75 0 0 1 0-1.5h-1Z"/></svg>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="top">
+            <div class="hero__eyebrow">
+                <span class="dot dot--live"></span>
+                <span>Active build · shipping M2 vertical slice</span>
+            </div>
+            <h1 class="hero__title">
+                <span class="hero__line hero__line--serif">The Renovations</span>
+                <span class="hero__line hero__line--italic">Era of</span>
+                <span class="hero__line hero__line--bold">Integration<span class="hero__period">.</span></span>
+            </h1>
+            <p class="hero__lead">
+                AI&#8209;native tooling for the people who connect systems. We're building an archetype&#8209;driven authoring framework that lets agents design, deploy and operate real production integrations — not toy demos.
+            </p>
+            <div class="hero__cta">
+                <a href="#roadmap" class="btn btn--primary">
+                    <span>See the roadmap</span>
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+                <a href="#product" class="btn btn--ghost">What we ship</a>
+            </div>
+            <dl class="hero__stats" aria-label="Project at a glance">
+                <div><dt>Milestones</dt><dd id="stat-milestones">9</dd></div>
+                <div><dt>Tracked items</dt><dd id="stat-items">34</dd></div>
+                <div><dt>Current stage</dt><dd id="stat-stage">M2</dd></div>
+                <div><dt>Open source</dt><dd>MIT</dd></div>
+            </dl>
+        </section>
+
+        <section class="manifesto" id="manifesto">
+            <div class="manifesto__label">
+                <span class="rule"></span>
+                <span>01 · Manifesto</span>
+            </div>
+            <div class="manifesto__grid">
+                <h2 class="manifesto__headline">
+                    Integration work shouldn't feel like archaeology.
+                </h2>
+                <div class="manifesto__copy">
+                    <p>Most enterprise integration today is shape‑by‑shape XML authoring through a UI that was modern a decade ago. Agents that try to help end up generating canned templates and dead patterns.</p>
+                    <p>RenEra is rebuilding the authoring loop around <em>archetypes</em> — named, typed, validated patterns that agents can compose into real Boomi components, deploy, and verify. No templates. No raw XML. No silent fallbacks.</p>
+                </div>
+            </div>
+            <ul class="pillars">
+                <li>
+                    <span class="pillars__num">α</span>
+                    <h3>Archetypes, not templates</h3>
+                    <p>Stable, typed patterns with parameter schemas — composable and machine‑inspectable.</p>
+                </li>
+                <li>
+                    <span class="pillars__num">β</span>
+                    <h3>Plan before mutation</h3>
+                    <p>Every build emits a normalized spec. Structured errors fire before any Boomi mutation.</p>
+                </li>
+                <li>
+                    <span class="pillars__num">γ</span>
+                    <h3>Reliability by default</h3>
+                    <p>Retry, DLQ, watermarks and run metadata ship with every archetype, not as add‑ons.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="product" id="product">
+            <div class="product__label">
+                <span class="rule"></span>
+                <span>02 · Product</span>
+            </div>
+            <h2 class="section__title">What we ship today.</h2>
+
+            <a class="product-card" href="https://boomi.renera.ai" target="_blank" rel="noopener">
+                <div class="product-card__head">
+                    <div class="product-card__icon" aria-hidden="true">
+                        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="8" cy="8" r="2.5"/>
+                            <circle cx="24" cy="8" r="2.5"/>
+                            <circle cx="8" cy="24" r="2.5"/>
+                            <circle cx="24" cy="24" r="2.5"/>
+                            <circle cx="16" cy="16" r="3"/>
+                            <path d="M8 10.5v3M24 10.5v3M10.5 8h3M18.5 8h3M10.5 24h3M18.5 24h3M8 18.5v3M24 18.5v3M14 14l-3-3M18 14l3-3M14 18l-3 3M18 18l3 3"/>
+                        </svg>
+                    </div>
+                    <div class="product-card__meta">
+                        <span class="badge badge--live">LIVE</span>
+                        <span class="mono">v3 · archetype API</span>
+                    </div>
+                </div>
+                <h3 class="product-card__title">Boomi MCP Server</h3>
+                <p class="product-card__copy">
+                    A Model Context Protocol server that gives LLM agents typed, validated access to Boomi AtomSphere — credentials, components, deployments, runtimes, executions, and the new archetype authoring framework.
+                </p>
+                <div class="product-card__foot">
+                    <ul class="chip-list">
+                        <li>credentials</li>
+                        <li>components</li>
+                        <li>deployments</li>
+                        <li>runtimes</li>
+                        <li>archetypes</li>
+                    </ul>
+                    <span class="product-card__arrow">
+                        Open boomi.renera.ai
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </span>
+                </div>
+            </a>
+        </section>
+
+        <section class="roadmap" id="roadmap">
+            <div class="roadmap__label">
+                <span class="rule"></span>
+                <span>03 · Roadmap</span>
+            </div>
+            <header class="roadmap__head">
+                <h2 class="section__title">Integration Authoring Roadmap.</h2>
+                <p class="section__lead">Nine milestones. Thirty‑four tracked items. Live from <a href="https://github.com/orgs/RenEra-ai/projects/1" target="_blank" rel="noopener">RenEra‑ai/projects/1</a>.</p>
+            </header>
+
+            <div class="roadmap__progress" aria-label="Roadmap progress">
+                <div class="roadmap__progress-bar">
+                    <span class="roadmap__progress-fill" id="progress-fill"></span>
+                </div>
+                <div class="roadmap__progress-legend">
+                    <span><i class="legend-dot legend-dot--done"></i> Done <b id="count-done">0</b></span>
+                    <span><i class="legend-dot legend-dot--prog"></i> In progress <b id="count-prog">0</b></span>
+                    <span><i class="legend-dot legend-dot--todo"></i> Todo <b id="count-todo">0</b></span>
+                </div>
+            </div>
+
+            <div class="roadmap__filters" role="tablist" aria-label="Filter roadmap">
+                <button class="filter is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+                <button class="filter" data-filter="Done" role="tab" aria-selected="false">Shipped</button>
+                <button class="filter" data-filter="In Progress" role="tab" aria-selected="false">In progress</button>
+                <button class="filter" data-filter="Todo" role="tab" aria-selected="false">Upcoming</button>
+            </div>
+
+            <ol class="timeline" id="timeline" aria-live="polite"></ol>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="contact__label">
+                <span class="rule"></span>
+                <span>04 · Contact</span>
+            </div>
+            <h2 class="contact__title">
+                <span>Building something</span>
+                <span class="contact__title-em">that has to actually work?</span>
+            </h2>
+            <p class="contact__copy">If you're an integration team that wants AI in the loop without giving up correctness, we want to talk.</p>
+            <a class="contact__mail" href="mailto:hello@renera.ai">
+                <span>hello@renera.ai</span>
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__row">
+            <span class="mono">© 2026 RenEra.ai · The Renovations Era</span>
+            <div class="footer__links">
+                <a href="https://github.com/RenEra-ai" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://github.com/orgs/RenEra-ai/projects/1" target="_blank" rel="noopener">Roadmap</a>
+                <a href="mailto:hello@renera.ai">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- roadmap data lives in roadmap.json (synced from GitHub Project #1 by .github/workflows/sync-roadmap.yml) -->
+
+    <script>
+      (function () {
+        // Smooth scroll for in-page anchors (works even if roadmap fetch fails)
+        document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+          a.addEventListener('click', function (e) {
+            var id = a.getAttribute('href');
+            if (id.length < 2) return;
+            var el = document.querySelector(id);
+            if (!el) return;
+            e.preventDefault();
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        });
+
+        fetch('roadmap.json?v=7').then(function (r) {
+          if (!r.ok) throw new Error('roadmap.json: HTTP ' + r.status);
+          return r.json();
+        }).then(function (data) {
+          var milestones = data.milestones;
+          var timeline = document.getElementById('timeline');
+
+        function statusClass(s) {
+          if (s === 'Done') return 'done';
+          if (s === 'In Progress') return 'prog';
+          return 'todo';
+        }
+        function statusLabel(s) {
+          if (s === 'Done') return 'Shipped';
+          if (s === 'In Progress') return 'In progress';
+          return 'Upcoming';
+        }
+        function fmtDate(d) {
+          if (!d) return '';
+          var parts = d.split('-');
+          var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+          return months[parseInt(parts[1], 10) - 1] + ' ' + parseInt(parts[2], 10) + ', ' + parts[0];
+        }
+
+        // Compute aggregate counts across all sub-items
+        var counts = { done: 0, prog: 0, todo: 0, total: 0 };
+        milestones.forEach(function (m) {
+          m.items.forEach(function (it) {
+            counts.total++;
+            counts[statusClass(it.status)]++;
+          });
+        });
+        document.getElementById('count-done').textContent = counts.done;
+        document.getElementById('count-prog').textContent = counts.prog;
+        document.getElementById('count-todo').textContent = counts.todo;
+
+        // Hero stats — derive from the same dataset
+        var statMs = document.getElementById('stat-milestones');
+        if (statMs) statMs.textContent = milestones.length;
+        var statItems = document.getElementById('stat-items');
+        if (statItems) statItems.textContent = counts.total;
+        var statStage = document.getElementById('stat-stage');
+        if (statStage) {
+          var current = milestones.find(function (m) { return m.status === 'In Progress'; })
+                     || milestones.find(function (m) { return m.status === 'Todo'; })
+                     || milestones[milestones.length - 1];
+          statStage.textContent = current ? current.id : '—';
+        }
+        var pct = counts.total ? Math.round((counts.done / counts.total) * 100) : 0;
+        var fill = document.getElementById('progress-fill');
+        fill.style.width = pct + '%';
+        fill.setAttribute('data-pct', pct + '%');
+
+        function render(filter) {
+          timeline.innerHTML = '';
+          milestones.forEach(function (m, idx) {
+            if (filter !== 'all' && m.status !== filter) return;
+
+            var doneCount = m.items.filter(function (i) { return i.status === 'Done'; }).length;
+            var totalCount = m.items.length;
+            var msPct = totalCount ? Math.round((doneCount / totalCount) * 100) : 0;
+
+            var li = document.createElement('li');
+            li.className = 'milestone milestone--' + statusClass(m.status);
+            li.style.setProperty('--i', idx);
+
+            var subItems = m.items.map(function (it) {
+              return ''
+                + '<li class="sub sub--' + statusClass(it.status) + '">'
+                +   '<span class="sub__status" aria-label="' + statusLabel(it.status) + '"></span>'
+                +   '<span class="sub__title">' + escape(it.title) + '</span>'
+                +   '<a class="sub__link" href="https://github.com/RenEra-ai/boomi-mcp-server/issues/' + it.n + '" target="_blank" rel="noopener" aria-label="Open issue #' + it.n + '">#' + it.n + '</a>'
+                + '</li>';
+            }).join('');
+
+            li.innerHTML = ''
+              + '<div class="milestone__rail" aria-hidden="true">'
+              +   '<span class="milestone__node"></span>'
+              + '</div>'
+              + '<details class="milestone__card"' + (m.status === 'In Progress' ? ' open' : '') + '>'
+              +   '<summary class="milestone__summary">'
+              +     '<div class="milestone__top">'
+              +       '<span class="milestone__id mono">' + m.id + '</span>'
+              +       '<span class="milestone__pill milestone__pill--' + statusClass(m.status) + '">'
+              +         '<span class="dot"></span>' + statusLabel(m.status)
+              +       '</span>'
+              +       '<span class="milestone__dates mono">' + fmtDate(m.start) + '  →  ' + fmtDate(m.due) + '</span>'
+              +     '</div>'
+              +     '<h3 class="milestone__title">' + escape(m.title) + '</h3>'
+              +     '<p class="milestone__copy">' + escape(m.summary) + '</p>'
+              +     '<div class="milestone__progress">'
+              +       '<div class="milestone__bar"><span style="width:' + msPct + '%"></span></div>'
+              +       '<span class="milestone__count mono">' + doneCount + ' / ' + totalCount + '</span>'
+              +     '</div>'
+              +     '<span class="milestone__toggle" aria-hidden="true">'
+              +       '<span>Tasks</span>'
+              +       '<svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5l3 3 3-3"/></svg>'
+              +     '</span>'
+              +   '</summary>'
+              +   '<ul class="sub-list">' + subItems + '</ul>'
+              + '</details>';
+
+            timeline.appendChild(li);
+          });
+        }
+
+        function escape(s) {
+          return String(s).replace(/[&<>"']/g, function (c) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+          });
+        }
+
+        // Filters
+        document.querySelectorAll('.filter').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            document.querySelectorAll('.filter').forEach(function (b) {
+              b.classList.remove('is-active');
+              b.setAttribute('aria-selected', 'false');
+            });
+            btn.classList.add('is-active');
+            btn.setAttribute('aria-selected', 'true');
+            render(btn.dataset.filter);
+          });
+        });
+
+          render('all');
+        }).catch(function (err) {
+          console.error(err);
+          var t = document.getElementById('timeline');
+          if (t) {
+            t.innerHTML = '<li style="padding:18px 0;color:var(--ink-mute);font-family:var(--mono);font-size:13px;">Roadmap data unavailable. <a href="https://github.com/orgs/RenEra-ai/projects/1" target="_blank" rel="noopener" style="color:var(--brand-hi);border-bottom:1px solid rgba(216,180,254,0.35);">View on GitHub &rarr;</a></li>';
+          }
+        });
+      })();
+    </script>
 </body>
 </html>

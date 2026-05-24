@@ -1,0 +1,264 @@
+{
+  "milestones": [
+    {
+      "id": "M0",
+      "title": "Docs Alignment",
+      "status": "Done",
+      "start": "2026-05-15",
+      "due": "2026-05-15",
+      "summary": "Establish the V3 archetype design as the authoritative project direction. Archive superseded V2 design and legacy XML‑builder docs.",
+      "items": [
+        {
+          "n": 6,
+          "title": "M0: Docs Alignment",
+          "status": "Done"
+        }
+      ]
+    },
+    {
+      "id": "M1",
+      "title": "Archetype Framework Skeleton",
+      "status": "Done",
+      "start": "2026-05-15",
+      "due": "2026-05-16",
+      "summary": "Add the framework before adding real integration patterns: base classes, registry discovery, parameter schemas, and the first three MCP authoring tools.",
+      "items": [
+        {
+          "n": 7,
+          "title": "M1: Archetype Framework Skeleton",
+          "status": "Done"
+        },
+        {
+          "n": 15,
+          "title": "M1.1 Archetype and primitive base contracts",
+          "status": "Done"
+        },
+        {
+          "n": 16,
+          "title": "M1.2 Pattern registry discovery",
+          "status": "Done"
+        },
+        {
+          "n": 17,
+          "title": "M1.3 Stub archetype",
+          "status": "Done"
+        },
+        {
+          "n": 18,
+          "title": "M1.4 MCP authoring tools",
+          "status": "Done"
+        },
+        {
+          "n": 19,
+          "title": "M1.5 Tests for framework and tools",
+          "status": "Done"
+        },
+        {
+          "n": 20,
+          "title": "M1.6 Capability and schema discoverability",
+          "status": "Done"
+        }
+      ]
+    },
+    {
+      "id": "M2",
+      "title": "First Vertical Slice — database_to_api_sync",
+      "status": "In Progress",
+      "start": "2026-05-18",
+      "due": "2026-06-12",
+      "summary": "End‑to‑end archetype for scheduled DB extraction into a REST API target. Includes DB & REST builders, profiles/maps, transform escalation ladder, process orchestration and operational primitives (retry, DLQ, watermarks, run metadata).",
+      "items": [
+        {
+          "n": 8,
+          "title": "M2: First vertical slice, database_to_api_sync",
+          "status": "In Progress"
+        },
+        {
+          "n": 21,
+          "title": "M2.1 Define contract and fixtures",
+          "status": "Done"
+        },
+        {
+          "n": 22,
+          "title": "M2.2 Database connector settings builder",
+          "status": "Done"
+        },
+        {
+          "n": 23,
+          "title": "M2.3 Database query operation builder",
+          "status": "Done"
+        },
+        {
+          "n": 24,
+          "title": "M2.4 REST target builder for sync sends",
+          "status": "Done"
+        },
+        {
+          "n": 25,
+          "title": "M2.5 Minimum process‑shape orchestration",
+          "status": "Todo"
+        },
+        {
+          "n": 26,
+          "title": "M2.6 Direct profile/map and XML↔JSON conversion",
+          "status": "Todo"
+        },
+        {
+          "n": 40,
+          "title": "M2.6a transform.function library",
+          "status": "Todo"
+        },
+        {
+          "n": 41,
+          "title": "M2.6b script.mapping escape hatch",
+          "status": "Todo"
+        },
+        {
+          "n": 42,
+          "title": "M2.6c XSLT support decision",
+          "status": "Todo"
+        },
+        {
+          "n": 43,
+          "title": "M2.6d Profile field generation strategy",
+          "status": "Todo"
+        },
+        {
+          "n": 44,
+          "title": "M2.1a Amend contract for typed transformations",
+          "status": "Todo"
+        },
+        {
+          "n": 27,
+          "title": "M2.7 Source and transform primitives",
+          "status": "Todo"
+        },
+        {
+          "n": 28,
+          "title": "M2.8 Target and operational reliability primitives",
+          "status": "Todo"
+        },
+        {
+          "n": 29,
+          "title": "M2.9 database_to_api_sync archetype assembly",
+          "status": "Todo"
+        },
+        {
+          "n": 30,
+          "title": "M2.10 End‑to‑end validation and live QA",
+          "status": "Todo"
+        },
+        {
+          "n": 31,
+          "title": "M2.x DB connector variants (Custom, pooling, auth)",
+          "status": "Todo"
+        },
+        {
+          "n": 45,
+          "title": "M2.x Component XML update preservation",
+          "status": "Todo"
+        },
+        {
+          "n": 46,
+          "title": "M2.x MCP transformation review surface",
+          "status": "Todo"
+        }
+      ]
+    },
+    {
+      "id": "M3",
+      "title": "Deploy & Test Orchestration",
+      "status": "Todo",
+      "start": "2026-06-15",
+      "due": "2026-06-26",
+      "summary": "One‑call deploy/test path: package, deploy, attach runtime, schedule, execute, monitor. Idempotent retries; structured failure diagnostics.",
+      "items": [
+        {
+          "n": 9,
+          "title": "M3: Deploy and Test Orchestration",
+          "status": "Todo"
+        }
+      ]
+    },
+    {
+      "id": "M4",
+      "title": "Agent Ergonomics",
+      "status": "Todo",
+      "start": "2026-06-29",
+      "due": "2026-07-10",
+      "summary": "Make the authoring flow self‑discoverable for a cold LLM client: structured error taxonomy, workflow hints in list_capabilities, schema access for IntegrationSpecV1 and each archetype, anti‑template labeled examples.",
+      "items": [
+        {
+          "n": 10,
+          "title": "M4: Agent Ergonomics",
+          "status": "Todo"
+        }
+      ]
+    },
+    {
+      "id": "M5",
+      "title": "API Variants",
+      "status": "Todo",
+      "start": "2026-07-13",
+      "due": "2026-08-07",
+      "summary": "Broaden from DB‑to‑REST into the main scheduled sync cases: api_to_database_sync, api_to_api_sync, REST pagination, OData fetch, SOAP source/target where required.",
+      "items": [
+        {
+          "n": 11,
+          "title": "M5: API Variants",
+          "status": "Todo"
+        },
+        {
+          "n": 32,
+          "title": "M5.x Database Send / write operation + write profile",
+          "status": "Todo"
+        }
+      ]
+    },
+    {
+      "id": "M6",
+      "title": "Event & Listener Variants",
+      "status": "Todo",
+      "start": "2026-08-10",
+      "due": "2026-08-28",
+      "summary": "Event‑based integrations after scheduled syncs are stable: HTTP listener source primitive, listener archetypes (HTTP→DB, HTTP→REST), inbound validation, listener deploy/start/verify.",
+      "items": [
+        {
+          "n": 12,
+          "title": "M6: Event and Listener Variants",
+          "status": "Todo"
+        }
+      ]
+    },
+    {
+      "id": "M7",
+      "title": "Discovery Tools",
+      "status": "Todo",
+      "start": "2026-08-31",
+      "due": "2026-09-18",
+      "summary": "Read‑only discovery: OpenAPI, SOAP WSDL, OData metadata, DB schema, profile field inference, plus import_existing_integration for migration drafts to IntegrationSpecV1.",
+      "items": [
+        {
+          "n": 13,
+          "title": "M7: Discovery Tools",
+          "status": "Todo"
+        }
+      ]
+    },
+    {
+      "id": "M8",
+      "title": "Archetype Composition",
+      "status": "Todo",
+      "start": "2026-09-21",
+      "due": "2026-10-09",
+      "summary": "Compose stable standalone archetypes into larger integrations with contract validation between parts. Composed output deploys and tests through normal orchestration.",
+      "items": [
+        {
+          "n": 14,
+          "title": "M8: Archetype Composition",
+          "status": "Todo"
+        }
+      ]
+    }
+  ]
+}
