@@ -81,6 +81,11 @@
           "status": "Done"
         },
         {
+          "n": 44,
+          "title": "M2.1a Amend database_to_api_sync contract for typed transformations and profile schema strategy",
+          "status": "Done"
+        },
+        {
           "n": 22,
           "title": "M2.2 Add database connector settings builder support",
           "status": "Done"
@@ -99,6 +104,16 @@
           "n": 25,
           "title": "M2.5 Add minimum process-shape orchestration support",
           "status": "Done"
+        },
+        {
+          "n": 49,
+          "title": "M2.5a Cross-component type validation for $ref targets in builder preflight (DB / REST / process-flow)",
+          "status": "Done"
+        },
+        {
+          "n": 43,
+          "title": "M2.5b Add profile field generation strategy for M2",
+          "status": "Todo"
         },
         {
           "n": 26,
@@ -121,14 +136,14 @@
           "status": "Todo"
         },
         {
-          "n": 43,
-          "title": "M2.5b Add profile field generation strategy for M2",
+          "n": 45,
+          "title": "M2.6d Add Component XML update preservation",
           "status": "Todo"
         },
         {
-          "n": 44,
-          "title": "M2.1a Amend database_to_api_sync contract for typed transformations and profile schema strategy",
-          "status": "Done"
+          "n": 46,
+          "title": "M2.6e Add MCP transformation review surface",
+          "status": "Todo"
         },
         {
           "n": 27,
@@ -153,21 +168,6 @@
         {
           "n": 31,
           "title": "M2.x Add database connector variant model for Custom driver, pooling, and auth-specific fields",
-          "status": "Done"
-        },
-        {
-          "n": 45,
-          "title": "M2.6d Add Component XML update preservation",
-          "status": "Todo"
-        },
-        {
-          "n": 46,
-          "title": "M2.6e Add MCP transformation review surface",
-          "status": "Todo"
-        },
-        {
-          "n": 49,
-          "title": "M2.5a Cross-component type validation for $ref targets in builder preflight (DB / REST / process-flow)",
           "status": "Done"
         }
       ]

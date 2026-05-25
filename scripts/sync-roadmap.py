@@ -18,8 +18,9 @@ This script:
     - Adds new milestones when the project introduces an unknown `M<n>` bucket.
       The new milestone is appended with an empty summary; a curator should fill it.
     - On the first run against the v1 schema, it migrates pre-existing curated
-      milestone and sub-item titles into `title_override` when they differ from
-      the project's raw titles.
+      milestone titles into `title_override` when they differ from the project's
+      raw labels. Sub-item titles are NOT migrated — the plan deliberately lets
+      renumberings (e.g. M2.6d -> M2.5b) flow through display.
 
 Run locally:
     python3 scripts/sync-roadmap.py
@@ -124,7 +125,9 @@ def normalize_milestone(m: dict) -> dict:
     out = {k: m[k] for k in MILESTONE_FIELD_ORDER if k in m}
     extras = {k: v for k, v in m.items() if k not in MILESTONE_FIELD_ORDER}
     out.update(extras)
-    out["items"] = [normalize_item(it) for it in out.get("items", [])]
+    items = [normalize_item(it) for it in out.get("items", [])]
+    items.sort(key=item_sort_key)
+    out["items"] = items
     return out
 
 
@@ -140,6 +143,25 @@ def milestone_sort_key(mid: str) -> tuple[int, str]:
     if match:
         return (int(match.group(1)), str(mid))
     return (sys.maxsize, str(mid))
+
+
+_ITEM_PARENT_RE = re.compile(r"^M\d+:")
+_ITEM_NUMBERED_RE = re.compile(r"^M\d+\.(\d+)([A-Za-z]*)\b")
+_ITEM_LETTER_RE = re.compile(r"^M\d+\.([A-Za-z]+)")
+
+
+def item_sort_key(item: dict) -> tuple[int, int, str, int]:
+    """Order items as: parent issue < numbered subs (natural) < lettered (e.g. M2.x)."""
+    title = item.get("title") or ""
+    if _ITEM_PARENT_RE.match(title):
+        return (0, 0, "", 0)
+    m = _ITEM_NUMBERED_RE.match(title)
+    if m:
+        return (1, int(m.group(1)), m.group(2), 0)
+    m = _ITEM_LETTER_RE.match(title)
+    if m:
+        return (2, 0, m.group(1), 0)
+    return (3, 0, "", int(item.get("n") or 0))
 
 
 def sync_item_fields(sub: dict, gh: dict, mid: str, migrating: bool, changes: list[str]) -> None:
@@ -174,16 +196,14 @@ def sync_milestone_rollup(m: dict, refs: dict[int, dict], mid: str, changes: lis
         for s in m["items"]
         if s.get("n") in refs and refs[s["n"]].get("due")
     ]
-    if starts:
-        new_start = min(starts)
-        if m.get("start") != new_start:
-            changes.append(f"{mid} start: {m.get('start')!r} -> {new_start!r}")
-            m["start"] = new_start
-    if dues:
-        new_due = max(dues)
-        if m.get("due") != new_due:
-            changes.append(f"{mid} due: {m.get('due')!r} -> {new_due!r}")
-            m["due"] = new_due
+    new_start = min(starts) if starts else None
+    if m.get("start") != new_start:
+        changes.append(f"{mid} start: {m.get('start')!r} -> {new_start!r}")
+        m["start"] = new_start
+    new_due = max(dues) if dues else None
+    if m.get("due") != new_due:
+        changes.append(f"{mid} due: {m.get('due')!r} -> {new_due!r}")
+        m["due"] = new_due
 
 
 def sync_roadmap(
@@ -281,6 +301,23 @@ def sync_roadmap(
             if gh is None:
                 if n not in project_issue_numbers:
                     changes.append(f"- {mid} #{n}: removed (not in project)")
+                    continue
+                if n in bucketed_issue_numbers:
+                    # Item moved to a different recognizable bucket; 2b on the
+                    # destination milestone will re-add it.
+                    continue
+                # Item is still in the project but its GH milestone label is
+                # missing/unparseable. Retain under the current local milestone
+                # rather than silently dropping it.
+                orphan = project_by_issue.get(n)
+                if orphan is not None:
+                    print(
+                        f"warning: {mid} #{n} has no recognizable GH milestone — retaining under {mid}",
+                        file=sys.stderr,
+                    )
+                    sync_item_fields(sub, orphan, mid, migrating, changes)
+                    merged_items.append(sub)
+                    consumed.add(n)
                 continue
             sync_item_fields(sub, gh, mid, migrating, changes)
             merged_items.append(sub)
