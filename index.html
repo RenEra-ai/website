@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=7">
+    <link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
     <div class="grain" aria-hidden="true"></div>
@@ -45,7 +45,7 @@
         <section class="hero" id="top">
             <div class="hero__eyebrow">
                 <span class="dot dot--live"></span>
-                <span>Active build · shipping M2 vertical slice</span>
+                <span id="hero-eyebrow-text">Active build</span>
             </div>
             <h1 class="hero__title">
                 <span class="hero__line hero__line--serif">The Renovations</span>
@@ -63,9 +63,9 @@
                 <a href="#product" class="btn btn--ghost">What we ship</a>
             </div>
             <dl class="hero__stats" aria-label="Project at a glance">
-                <div><dt>Milestones</dt><dd id="stat-milestones">9</dd></div>
-                <div><dt>Tracked items</dt><dd id="stat-items">34</dd></div>
-                <div><dt>Current stage</dt><dd id="stat-stage">M2</dd></div>
+                <div><dt>Milestones</dt><dd id="stat-milestones"></dd></div>
+                <div><dt>Tracked items</dt><dd id="stat-items"></dd></div>
+                <div><dt>Current stage</dt><dd id="stat-stage"></dd></div>
                 <div><dt>Open source</dt><dd>MIT</dd></div>
             </dl>
         </section>
@@ -154,7 +154,7 @@
             </div>
             <header class="roadmap__head">
                 <h2 class="section__title">Integration Authoring Roadmap.</h2>
-                <p class="section__lead">Nine milestones. Thirty‑four tracked items. Live from <a href="https://github.com/orgs/RenEra-ai/projects/1" target="_blank" rel="noopener">RenEra‑ai/projects/1</a>.</p>
+                <p class="section__lead"><span id="roadmap-lead-counts">Loading roadmap…</span> Live from <a href="https://github.com/orgs/RenEra-ai/projects/1" target="_blank" rel="noopener">RenEra‑ai/projects/1</a>.</p>
             </header>
 
             <div class="roadmap__progress" aria-label="Roadmap progress">
@@ -222,7 +222,7 @@
           });
         });
 
-        fetch('roadmap.json?v=7').then(function (r) {
+        fetch('roadmap.json?v=8').then(function (r) {
           if (!r.ok) throw new Error('roadmap.json: HTTP ' + r.status);
           return r.json();
         }).then(function (data) {
@@ -245,6 +245,9 @@
           var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
           return months[parseInt(parts[1], 10) - 1] + ' ' + parseInt(parts[2], 10) + ', ' + parts[0];
         }
+        function displayTitle(entity) {
+          return (entity && entity.title_override) || (entity && entity.title) || '';
+        }
 
         // Compute aggregate counts across all sub-items
         var counts = { done: 0, prog: 0, todo: 0, total: 0 };
@@ -258,18 +261,36 @@
         document.getElementById('count-prog').textContent = counts.prog;
         document.getElementById('count-todo').textContent = counts.todo;
 
+        // Pick the milestone the project is actively shipping.
+        var current = milestones.find(function (m) { return m.status === 'In Progress'; })
+                   || milestones.find(function (m) { return m.status === 'Todo'; })
+                   || milestones[milestones.length - 1];
+
         // Hero stats — derive from the same dataset
         var statMs = document.getElementById('stat-milestones');
         if (statMs) statMs.textContent = milestones.length;
         var statItems = document.getElementById('stat-items');
         if (statItems) statItems.textContent = counts.total;
         var statStage = document.getElementById('stat-stage');
-        if (statStage) {
-          var current = milestones.find(function (m) { return m.status === 'In Progress'; })
-                     || milestones.find(function (m) { return m.status === 'Todo'; })
-                     || milestones[milestones.length - 1];
-          statStage.textContent = current ? current.id : '—';
+        if (statStage) statStage.textContent = current ? current.id : '—';
+
+        // Hero eyebrow text
+        var eyebrow = document.getElementById('hero-eyebrow-text');
+        if (eyebrow) {
+          if (current) {
+            var verb = current.status === 'In Progress' ? 'shipping' : 'preparing';
+            eyebrow.textContent = 'Active build · ' + verb + ' ' + current.id + ' · ' + displayTitle(current);
+          } else {
+            eyebrow.textContent = 'Active build';
+          }
         }
+
+        // Roadmap section lead counts
+        var leadCounts = document.getElementById('roadmap-lead-counts');
+        if (leadCounts) {
+          leadCounts.textContent = milestones.length + ' milestones. ' + counts.total + ' tracked items.';
+        }
+
         var pct = counts.total ? Math.round((counts.done / counts.total) * 100) : 0;
         var fill = document.getElementById('progress-fill');
         fill.style.width = pct + '%';
@@ -289,11 +310,15 @@
             li.style.setProperty('--i', idx);
 
             var subItems = m.items.map(function (it) {
+              var issue = issueNumber(it.n);
+              var issueLink = issue
+                ? '<a class="sub__link" href="https://github.com/RenEra-ai/boomi-mcp-server/issues/' + issue + '" target="_blank" rel="noopener" aria-label="Open issue #' + issue + '">#' + issue + '</a>'
+                : '';
               return ''
                 + '<li class="sub sub--' + statusClass(it.status) + '">'
                 +   '<span class="sub__status" aria-label="' + statusLabel(it.status) + '"></span>'
-                +   '<span class="sub__title">' + escape(it.title) + '</span>'
-                +   '<a class="sub__link" href="https://github.com/RenEra-ai/boomi-mcp-server/issues/' + it.n + '" target="_blank" rel="noopener" aria-label="Open issue #' + it.n + '">#' + it.n + '</a>'
+                +   '<span class="sub__title">' + escape(displayTitle(it)) + '</span>'
+                +   issueLink
                 + '</li>';
             }).join('');
 
@@ -304,14 +329,14 @@
               + '<details class="milestone__card"' + (m.status === 'In Progress' ? ' open' : '') + '>'
               +   '<summary class="milestone__summary">'
               +     '<div class="milestone__top">'
-              +       '<span class="milestone__id mono">' + m.id + '</span>'
+              +       '<span class="milestone__id mono">' + escape(m.id) + '</span>'
               +       '<span class="milestone__pill milestone__pill--' + statusClass(m.status) + '">'
               +         '<span class="dot"></span>' + statusLabel(m.status)
               +       '</span>'
-              +       '<span class="milestone__dates mono">' + fmtDate(m.start) + '  →  ' + fmtDate(m.due) + '</span>'
+              +       '<span class="milestone__dates mono">' + escape(fmtDate(m.start)) + '  →  ' + escape(fmtDate(m.due)) + '</span>'
               +     '</div>'
-              +     '<h3 class="milestone__title">' + escape(m.title) + '</h3>'
-              +     '<p class="milestone__copy">' + escape(m.summary) + '</p>'
+              +     '<h3 class="milestone__title">' + escape(displayTitle(m)) + '</h3>'
+              +     '<p class="milestone__copy">' + escape(m.summary || '') + '</p>'
               +     '<div class="milestone__progress">'
               +       '<div class="milestone__bar"><span style="width:' + msPct + '%"></span></div>'
               +       '<span class="milestone__count mono">' + doneCount + ' / ' + totalCount + '</span>'
@@ -332,6 +357,10 @@
           return String(s).replace(/[&<>"']/g, function (c) {
             return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
           });
+        }
+        function issueNumber(n) {
+          var parsed = Number(n);
+          return isFinite(parsed) && Math.floor(parsed) === parsed && parsed > 0 ? String(parsed) : '';
         }
 
         // Filters
@@ -354,6 +383,8 @@
           if (t) {
             t.innerHTML = '<li style="padding:18px 0;color:var(--ink-mute);font-family:var(--mono);font-size:13px;">Roadmap data unavailable. <a href="https://github.com/orgs/RenEra-ai/projects/1" target="_blank" rel="noopener" style="color:var(--brand-hi);border-bottom:1px solid rgba(216,180,254,0.35);">View on GitHub &rarr;</a></li>';
           }
+          var leadCounts = document.getElementById('roadmap-lead-counts');
+          if (leadCounts) leadCounts.textContent = 'Roadmap data unavailable.';
         });
       })();
     </script>

@@ -1,4 +1,5 @@
 {
+  "schema_version": 2,
   "milestones": [
     {
       "id": "M0",
@@ -30,39 +31,40 @@
         },
         {
           "n": 15,
-          "title": "M1.1 Archetype and primitive base contracts",
+          "title": "M1.1 Add archetype and primitive base contracts",
           "status": "Done"
         },
         {
           "n": 16,
-          "title": "M1.2 Pattern registry discovery",
+          "title": "M1.2 Add pattern registry discovery",
           "status": "Done"
         },
         {
           "n": 17,
-          "title": "M1.3 Stub archetype",
+          "title": "M1.3 Add stub archetype",
           "status": "Done"
         },
         {
           "n": 18,
-          "title": "M1.4 MCP authoring tools",
+          "title": "M1.4 Add MCP authoring tools",
           "status": "Done"
         },
         {
           "n": 19,
-          "title": "M1.5 Tests for framework and tools",
+          "title": "M1.5 Add tests for framework and tools",
           "status": "Done"
         },
         {
           "n": 20,
-          "title": "M1.6 Capability and schema discoverability",
+          "title": "M1.6 Update capability/schema discoverability",
           "status": "Done"
         }
       ]
     },
     {
       "id": "M2",
-      "title": "First Vertical Slice — database_to_api_sync",
+      "title": "database_to_api_sync Vertical Slice",
+      "title_override": "First Vertical Slice — database_to_api_sync",
       "status": "In Progress",
       "start": "2026-05-18",
       "due": "2026-06-12",
@@ -70,104 +72,110 @@
       "items": [
         {
           "n": 8,
-          "title": "M2: First vertical slice, database_to_api_sync",
+          "title": "M2: First Vertical Slice, database_to_api_sync",
           "status": "In Progress"
         },
         {
           "n": 21,
-          "title": "M2.1 Define contract and fixtures",
+          "title": "M2.1 Define database_to_api_sync contract and fixtures",
           "status": "Done"
         },
         {
           "n": 22,
-          "title": "M2.2 Database connector settings builder",
+          "title": "M2.2 Add database connector settings builder support",
           "status": "Done"
         },
         {
           "n": 23,
-          "title": "M2.3 Database query operation builder",
+          "title": "M2.3 Add database query operation builder support",
           "status": "Done"
         },
         {
           "n": 24,
-          "title": "M2.4 REST target builder for sync sends",
+          "title": "M2.4 Add REST target builder support for sync sends",
           "status": "Done"
         },
         {
           "n": 25,
-          "title": "M2.5 Minimum process‑shape orchestration",
-          "status": "Todo"
+          "title": "M2.5 Add minimum process-shape orchestration support",
+          "status": "Done"
         },
         {
           "n": 26,
-          "title": "M2.6 Direct profile/map and XML↔JSON conversion",
+          "title": "M2.6 Add direct profile map and XML JSON conversion support",
           "status": "Todo"
         },
         {
           "n": 40,
-          "title": "M2.6a transform.function library",
+          "title": "M2.6a Add transform.function library support",
           "status": "Todo"
         },
         {
           "n": 41,
-          "title": "M2.6b script.mapping escape hatch",
+          "title": "M2.6b Add script.mapping support as in-map escape hatch",
           "status": "Todo"
         },
         {
           "n": 42,
-          "title": "M2.6c XSLT support decision",
+          "title": "M2.6c Record XSLT support decision",
           "status": "Todo"
         },
         {
           "n": 43,
-          "title": "M2.6d Profile field generation strategy",
+          "title": "M2.5b Add profile field generation strategy for M2",
           "status": "Todo"
         },
         {
           "n": 44,
-          "title": "M2.1a Amend contract for typed transformations",
-          "status": "Todo"
+          "title": "M2.1a Amend database_to_api_sync contract for typed transformations and profile schema strategy",
+          "status": "Done"
         },
         {
           "n": 27,
-          "title": "M2.7 Source and transform primitives",
+          "title": "M2.7 Add source and transform primitives",
           "status": "Todo"
         },
         {
           "n": 28,
-          "title": "M2.8 Target and operational reliability primitives",
+          "title": "M2.8 Add target and operational reliability primitives",
           "status": "Todo"
         },
         {
           "n": 29,
-          "title": "M2.9 database_to_api_sync archetype assembly",
+          "title": "M2.9 Add database_to_api_sync archetype assembly",
           "status": "Todo"
         },
         {
           "n": 30,
-          "title": "M2.10 End‑to‑end validation and live QA",
+          "title": "M2.10 Add M2 end-to-end validation and live QA",
           "status": "Todo"
         },
         {
           "n": 31,
-          "title": "M2.x DB connector variants (Custom, pooling, auth)",
+          "title": "M2.x Add database connector variant model for Custom driver, pooling, and auth-specific fields",
           "status": "Done"
         },
         {
           "n": 45,
-          "title": "M2.x Component XML update preservation",
+          "title": "M2.6d Add Component XML update preservation",
           "status": "Todo"
         },
         {
           "n": 46,
-          "title": "M2.x MCP transformation review surface",
+          "title": "M2.6e Add MCP transformation review surface",
           "status": "Todo"
+        },
+        {
+          "n": 49,
+          "title": "M2.5a Cross-component type validation for $ref targets in builder preflight (DB / REST / process-flow)",
+          "status": "Done"
         }
       ]
     },
     {
       "id": "M3",
-      "title": "Deploy & Test Orchestration",
+      "title": "Deploy and Test Orchestration",
+      "title_override": "Deploy & Test Orchestration",
       "status": "Todo",
       "start": "2026-06-15",
       "due": "2026-06-26",
@@ -210,14 +218,15 @@
         },
         {
           "n": 32,
-          "title": "M5.x Database Send / write operation + write profile",
+          "title": "M5.1 Add database Send/write operation and write profile support",
           "status": "Todo"
         }
       ]
     },
     {
       "id": "M6",
-      "title": "Event & Listener Variants",
+      "title": "Event and Listener Variants",
+      "title_override": "Event & Listener Variants",
       "status": "Todo",
       "start": "2026-08-10",
       "due": "2026-08-28",
