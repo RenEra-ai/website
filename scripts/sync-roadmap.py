@@ -239,6 +239,16 @@ def sync_roadmap(
         for n in bucket["items"]
     }
 
+    # Warn on brand-new project issues that have no parseable M<n> milestone
+    # label and no existing local entry to retain them under. They won't appear
+    # on the site until a curator attaches a milestone label in the project.
+    for n in sorted(project_issue_numbers - bucketed_issue_numbers - set(local_item_by_issue)):
+        title = project_by_issue[n].get("title", "")
+        print(
+            f"warning: project issue #{n} ({title!r}) has no recognizable GH milestone label — add one in the project",
+            file=sys.stderr,
+        )
+
     # 1. Auto-add new milestones for any GH bucket not present locally.
     for mid in sorted(buckets.keys(), key=milestone_sort_key):
         if mid in local_by_id:
@@ -353,8 +363,10 @@ def sync_roadmap(
             changes.append(f"{mid}: title {local_title!r} -> {gh_label!r}")
             m["title"] = gh_label
 
-        # 2d. Milestone status and aggregate dates.
-        sync_milestone_rollup(m, gh_items, mid, changes)
+        # 2d. Milestone status and aggregate dates. Use the global by-issue
+        # index so retained bucket-less items (and a bucket-less parent issue)
+        # can still drive status and date rollups.
+        sync_milestone_rollup(m, project_by_issue, mid, changes)
         active_milestones.append(m)
 
     # 3. Sort milestones by their numeric M<n>.
