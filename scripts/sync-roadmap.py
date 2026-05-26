@@ -202,8 +202,12 @@ def sync_milestone_rollup(m: dict, refs: dict[int, dict], mid: str, changes: lis
         for s in m["items"]
         if s.get("n") in refs and refs[s["n"]].get("due")
     ]
-    m.setdefault("start", None)
-    m.setdefault("due", None)
+    if "start" not in m:
+        changes.append(f"{mid} start: <absent> -> None")
+        m["start"] = None
+    if "due" not in m:
+        changes.append(f"{mid} due: <absent> -> None")
+        m["due"] = None
     new_start = min(starts) if starts else None
     if m["start"] != new_start:
         changes.append(f"{mid} start: {m['start']!r} -> {new_start!r}")
@@ -214,18 +218,28 @@ def sync_milestone_rollup(m: dict, refs: dict[int, dict], mid: str, changes: lis
         m["due"] = new_due
 
 
-def warn_on_untagged_issues(roadmap: dict, buckets: dict[str, dict], by_issue: dict[int, dict]) -> None:
+def warn_on_untagged_issues(
+    roadmap: dict,
+    buckets: dict[str, dict],
+    by_issue: dict[int, dict],
+    *,
+    include_local: bool = False,
+) -> None:
     """Print a stderr warning for each project issue whose milestone label has
-    no parseable M<n> prefix and which is not already tracked in roadmap.json.
-    Such issues won't appear on the site until a curator labels them in GH.
+    no parseable M<n> prefix. By default, items already tracked locally are
+    suppressed (they get a separate "retaining" warning during sync). Pass
+    include_local=True to surface every untagged issue — used on the abort
+    path so operators see the full list when nothing else will run.
     """
     bucketed = {n for b in buckets.values() for n in b["items"]}
-    local = {
-        sub.get("n")
-        for m in roadmap.get("milestones", [])
-        for sub in m.get("items", [])
-        if isinstance(sub.get("n"), int)
-    }
+    local: set[int] = set()
+    if not include_local:
+        local = {
+            sub.get("n")
+            for m in roadmap.get("milestones", [])
+            for sub in m.get("items", [])
+            if isinstance(sub.get("n"), int)
+        }
     for n in sorted(set(by_issue) - bucketed - local):
         title = by_issue[n].get("title", "")
         print(
@@ -413,6 +427,9 @@ def main() -> int:
         sys.exit("error: no items returned from gh project item-list (auth or project access?)")
     warn_on_untagged_issues(roadmap, buckets, by_issue)
     if not buckets:
+        # Surface every untagged issue (including those already in roadmap.json)
+        # so the operator can diagnose the project state before fixing labels.
+        warn_on_untagged_issues(roadmap, buckets, by_issue, include_local=True)
         sys.exit("error: no project items with recognizable M<n> milestone labels returned")
 
     n, descriptions = sync_roadmap(roadmap, buckets, by_issue)
