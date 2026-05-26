@@ -107,6 +107,12 @@ def index_project_items(items: list[dict]) -> tuple[dict[str, dict], dict[int, d
         bucket = buckets.setdefault(mid, {"label_tail": label_tail, "items": {}})
         if not bucket["label_tail"] and label_tail:
             bucket["label_tail"] = label_tail
+        elif bucket["label_tail"] and label_tail and bucket["label_tail"] != label_tail:
+            print(
+                f"warning: GH project has conflicting labels for {mid}: "
+                f"{bucket['label_tail']!r} vs {label_tail!r} — keeping first",
+                file=sys.stderr,
+            )
         bucket["items"][num] = ref
     return buckets, by_issue
 
@@ -196,14 +202,36 @@ def sync_milestone_rollup(m: dict, refs: dict[int, dict], mid: str, changes: lis
         for s in m["items"]
         if s.get("n") in refs and refs[s["n"]].get("due")
     ]
+    m.setdefault("start", None)
+    m.setdefault("due", None)
     new_start = min(starts) if starts else None
-    if m.get("start") != new_start:
-        changes.append(f"{mid} start: {m.get('start')!r} -> {new_start!r}")
+    if m["start"] != new_start:
+        changes.append(f"{mid} start: {m['start']!r} -> {new_start!r}")
         m["start"] = new_start
     new_due = max(dues) if dues else None
-    if m.get("due") != new_due:
-        changes.append(f"{mid} due: {m.get('due')!r} -> {new_due!r}")
+    if m["due"] != new_due:
+        changes.append(f"{mid} due: {m['due']!r} -> {new_due!r}")
         m["due"] = new_due
+
+
+def warn_on_untagged_issues(roadmap: dict, buckets: dict[str, dict], by_issue: dict[int, dict]) -> None:
+    """Print a stderr warning for each project issue whose milestone label has
+    no parseable M<n> prefix and which is not already tracked in roadmap.json.
+    Such issues won't appear on the site until a curator labels them in GH.
+    """
+    bucketed = {n for b in buckets.values() for n in b["items"]}
+    local = {
+        sub.get("n")
+        for m in roadmap.get("milestones", [])
+        for sub in m.get("items", [])
+        if isinstance(sub.get("n"), int)
+    }
+    for n in sorted(set(by_issue) - bucketed - local):
+        title = by_issue[n].get("title", "")
+        print(
+            f"warning: project issue #{n} ({title!r}) has no recognizable GH milestone label — add one in the project",
+            file=sys.stderr,
+        )
 
 
 def sync_roadmap(
@@ -238,16 +266,6 @@ def sync_roadmap(
         for bucket in buckets.values()
         for n in bucket["items"]
     }
-
-    # Warn on brand-new project issues that have no parseable M<n> milestone
-    # label and no existing local entry to retain them under. They won't appear
-    # on the site until a curator attaches a milestone label in the project.
-    for n in sorted(project_issue_numbers - bucketed_issue_numbers - set(local_item_by_issue)):
-        title = project_by_issue[n].get("title", "")
-        print(
-            f"warning: project issue #{n} ({title!r}) has no recognizable GH milestone label — add one in the project",
-            file=sys.stderr,
-        )
 
     # 1. Auto-add new milestones for any GH bucket not present locally.
     for mid in sorted(buckets.keys(), key=milestone_sort_key):
@@ -393,6 +411,7 @@ def main() -> int:
 
     if not by_issue:
         sys.exit("error: no items returned from gh project item-list (auth or project access?)")
+    warn_on_untagged_issues(roadmap, buckets, by_issue)
     if not buckets:
         sys.exit("error: no project items with recognizable M<n> milestone labels returned")
 
