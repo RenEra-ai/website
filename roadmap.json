@@ -113,12 +113,12 @@
         {
           "n": 43,
           "title": "M2.5b Add profile field generation strategy for M2",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 26,
           "title": "M2.6 Add direct profile map and XML JSON conversion support",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 40,
