@@ -185,6 +185,18 @@ def sync_item_fields(sub: dict, gh: dict, mid: str, migrating: bool, changes: li
         sub["title"] = gh["title"]
 
 
+def _update_field(m: dict, key: str, new_value, mid: str, changes: list[str]) -> None:
+    """Assign m[key] = new_value, emitting exactly one change entry when
+    something actually changes (including key-absence normalization)."""
+    if key in m:
+        if m[key] != new_value:
+            changes.append(f"{mid} {key}: {m[key]!r} -> {new_value!r}")
+            m[key] = new_value
+    else:
+        changes.append(f"{mid} {key}: <absent> -> {new_value!r}")
+        m[key] = new_value
+
+
 def sync_milestone_rollup(m: dict, refs: dict[int, dict], mid: str, changes: list[str]) -> None:
     parent_n = milestone_parent_issue_number(m)
     parent_ref = refs.get(parent_n) if parent_n is not None else None
@@ -202,20 +214,10 @@ def sync_milestone_rollup(m: dict, refs: dict[int, dict], mid: str, changes: lis
         for s in m["items"]
         if s.get("n") in refs and refs[s["n"]].get("due")
     ]
-    if "start" not in m:
-        changes.append(f"{mid} start: <absent> -> None")
-        m["start"] = None
-    if "due" not in m:
-        changes.append(f"{mid} due: <absent> -> None")
-        m["due"] = None
     new_start = min(starts) if starts else None
-    if m["start"] != new_start:
-        changes.append(f"{mid} start: {m['start']!r} -> {new_start!r}")
-        m["start"] = new_start
+    _update_field(m, "start", new_start, mid, changes)
     new_due = max(dues) if dues else None
-    if m["due"] != new_due:
-        changes.append(f"{mid} due: {m['due']!r} -> {new_due!r}")
-        m["due"] = new_due
+    _update_field(m, "due", new_due, mid, changes)
 
 
 def warn_on_untagged_issues(
@@ -425,10 +427,12 @@ def main() -> int:
 
     if not by_issue:
         sys.exit("error: no items returned from gh project item-list (auth or project access?)")
-    warn_on_untagged_issues(roadmap, buckets, by_issue)
-    if not buckets:
-        # Surface every untagged issue (including those already in roadmap.json)
-        # so the operator can diagnose the project state before fixing labels.
+    if buckets:
+        warn_on_untagged_issues(roadmap, buckets, by_issue)
+    else:
+        # No buckets at all — surface every untagged issue (including those
+        # already in roadmap.json) before aborting, so the operator can
+        # diagnose the project state.
         warn_on_untagged_issues(roadmap, buckets, by_issue, include_local=True)
         sys.exit("error: no project items with recognizable M<n> milestone labels returned")
 
