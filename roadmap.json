@@ -123,12 +123,12 @@
         {
           "n": 40,
           "title": "M2.6a Add transform.function library support",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 41,
           "title": "M2.6b Add script.mapping support as in-map escape hatch",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 42,
