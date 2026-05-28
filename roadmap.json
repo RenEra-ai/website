@@ -133,12 +133,12 @@
         {
           "n": 42,
           "title": "M2.6c Record XSLT support decision",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 45,
           "title": "M2.6d Add Component XML update preservation",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 46,
