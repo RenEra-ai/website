@@ -222,7 +222,9 @@
           });
         });
 
-        fetch('roadmap.json?v=8').then(function (r) {
+        // roadmap.json is regenerated daily by the sync workflow, so never serve
+        // a cached copy — a static ?v= token would pin stale data between deploys.
+        fetch('roadmap.json', { cache: 'no-store' }).then(function (r) {
           if (!r.ok) throw new Error('roadmap.json: HTTP ' + r.status);
           return r.json();
         }).then(function (data) {
