@@ -177,13 +177,53 @@
       "title": "Deploy and Test Orchestration",
       "title_override": "Deploy & Test Orchestration",
       "status": "Todo",
-      "start": "2026-06-15",
-      "due": "2026-06-26",
+      "start": "2026-05-31",
+      "due": "2026-06-07",
       "summary": "One‑call deploy/test path: package, deploy, attach runtime, schedule, execute, monitor. Idempotent retries; structured failure diagnostics.",
       "items": [
         {
           "n": 9,
           "title": "M3: Deploy and Test Orchestration",
+          "status": "Todo"
+        },
+        {
+          "n": 60,
+          "title": "M3.1 Add orchestrate_deploy contract and build-result resolver",
+          "status": "Todo"
+        },
+        {
+          "n": 61,
+          "title": "M3.2 Add idempotent package creation and deployment stage",
+          "status": "Todo"
+        },
+        {
+          "n": 62,
+          "title": "M3.3 Add runtime attachment and schedule activation stage",
+          "status": "Todo"
+        },
+        {
+          "n": 63,
+          "title": "M3.4 Add optional test execution, polling, and log summary stage",
+          "status": "Todo"
+        },
+        {
+          "n": 64,
+          "title": "M3.5 Compose and register orchestrate_deploy MCP tool",
+          "status": "Todo"
+        },
+        {
+          "n": 65,
+          "title": "M3.6 Harden orchestration failures, idempotency, and cleanup planning",
+          "status": "Todo"
+        },
+        {
+          "n": 66,
+          "title": "M3.7 Live QA orchestrate_deploy against M2 archetype output",
+          "status": "Todo"
+        },
+        {
+          "n": 51,
+          "title": "M3.R1 Verified Try/Catch + DLQ process emission (un-gate retry_count / DLQ)",
           "status": "Todo"
         }
       ]
@@ -192,8 +232,8 @@
       "id": "M4",
       "title": "Agent Ergonomics",
       "status": "Todo",
-      "start": "2026-06-29",
-      "due": "2026-07-10",
+      "start": "2026-06-08",
+      "due": "2026-06-12",
       "summary": "Make the authoring flow self‑discoverable for a cold LLM client: structured error taxonomy, workflow hints in list_capabilities, schema access for IntegrationSpecV1 and each archetype, anti‑template labeled examples.",
       "items": [
         {
@@ -207,8 +247,8 @@
       "id": "M5",
       "title": "API Variants",
       "status": "Todo",
-      "start": "2026-07-13",
-      "due": "2026-08-07",
+      "start": "2026-06-15",
+      "due": "2026-07-17",
       "summary": "Broaden from DB‑to‑REST into the main scheduled sync cases: api_to_database_sync, api_to_api_sync, REST pagination, OData fetch, SOAP source/target where required.",
       "items": [
         {
@@ -220,6 +260,11 @@
           "n": 32,
           "title": "M5.1 Add database Send/write operation and write profile support",
           "status": "Todo"
+        },
+        {
+          "n": 50,
+          "title": "M5.2 Inner-object preservation hardening + REST conditional emission (follow-up to #45)",
+          "status": "Todo"
         }
       ]
     },
@@ -228,8 +273,8 @@
       "title": "Event and Listener Variants",
       "title_override": "Event & Listener Variants",
       "status": "Todo",
-      "start": "2026-08-10",
-      "due": "2026-08-28",
+      "start": "2026-06-29",
+      "due": "2026-07-03",
       "summary": "Event‑based integrations after scheduled syncs are stable: HTTP listener source primitive, listener archetypes (HTTP→DB, HTTP→REST), inbound validation, listener deploy/start/verify.",
       "items": [
         {
@@ -243,8 +288,8 @@
       "id": "M7",
       "title": "Discovery Tools",
       "status": "Todo",
-      "start": "2026-08-31",
-      "due": "2026-09-18",
+      "start": "2026-07-06",
+      "due": "2026-07-10",
       "summary": "Read‑only discovery: OpenAPI, SOAP WSDL, OData metadata, DB schema, profile field inference, plus import_existing_integration for migration drafts to IntegrationSpecV1.",
       "items": [
         {
@@ -258,8 +303,8 @@
       "id": "M8",
       "title": "Archetype Composition",
       "status": "Todo",
-      "start": "2026-09-21",
-      "due": "2026-10-09",
+      "start": "2026-07-13",
+      "due": "2026-07-17",
       "summary": "Compose stable standalone archetypes into larger integrations with contract validation between parts. Composed output deploys and tests through normal orchestration.",
       "items": [
         {
