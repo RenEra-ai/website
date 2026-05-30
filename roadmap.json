@@ -176,7 +176,7 @@
       "id": "M3",
       "title": "Deploy and Test Orchestration",
       "title_override": "Deploy & Test Orchestration",
-      "status": "Todo",
+      "status": "In Progress",
       "start": "2026-05-31",
       "due": "2026-06-07",
       "summary": "One‑call deploy/test path: package, deploy, attach runtime, schedule, execute, monitor. Idempotent retries; structured failure diagnostics.",
@@ -184,7 +184,7 @@
         {
           "n": 9,
           "title": "M3: Deploy and Test Orchestration",
-          "status": "Todo"
+          "status": "In Progress"
         },
         {
           "n": 60,
