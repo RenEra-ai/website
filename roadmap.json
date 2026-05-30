@@ -65,7 +65,7 @@
       "id": "M2",
       "title": "database_to_api_sync Vertical Slice",
       "title_override": "First Vertical Slice — database_to_api_sync",
-      "status": "In Progress",
+      "status": "Done",
       "start": "2026-05-18",
       "due": "2026-06-12",
       "summary": "End‑to‑end archetype for scheduled DB extraction into a REST API target. Includes DB & REST builders, profiles/maps, transform escalation ladder, process orchestration and operational primitives (retry, DLQ, watermarks, run metadata).",
@@ -73,7 +73,7 @@
         {
           "n": 8,
           "title": "M2: First Vertical Slice, database_to_api_sync",
-          "status": "In Progress"
+          "status": "Done"
         },
         {
           "n": 21,
@@ -153,17 +153,17 @@
         {
           "n": 28,
           "title": "M2.8 Add target and operational reliability primitives",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 29,
           "title": "M2.9 Add database_to_api_sync archetype assembly",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 30,
           "title": "M2.10 Add M2 end-to-end validation and live QA",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 31,
