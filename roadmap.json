@@ -296,6 +296,16 @@
           "n": 13,
           "title": "M7: Discovery Tools",
           "status": "Todo"
+        },
+        {
+          "n": 47,
+          "title": "M7.1 Add profile inference from DB metadata samples XSD and sample XML",
+          "status": "Done"
+        },
+        {
+          "n": 48,
+          "title": "M7.2 Add existing integration import to IntegrationSpecV1 drafts",
+          "status": "Todo"
         }
       ]
     },
