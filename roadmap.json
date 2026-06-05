@@ -247,7 +247,7 @@
       "id": "M5",
       "title": "API Variants",
       "status": "Todo",
-      "start": "2026-06-04",
+      "start": "2026-06-22",
       "due": "2026-07-03",
       "summary": "Generalize the scheduled sync core into a verified sync_pipeline: a PipelineSpec stage model with a semantic validator, with database_to_api_sync preserved as an adapter over it. Add a REST fetch/source primitive, database write support, and inner‑object preservation hardening, then ship api_to_api_sync and api_to_database_sync presets with live QA.",
       "items": [
@@ -328,7 +328,7 @@
       "id": "M7",
       "title": "Discovery Tools",
       "status": "Todo",
-      "start": "2026-06-01",
+      "start": "2026-07-13",
       "due": "2026-07-17",
       "summary": "Read‑only discovery: OpenAPI, SOAP WSDL, OData metadata, DB schema, profile field inference, plus import_existing_integration for migration drafts to sync_pipeline / preset parameters and IntegrationSpecV1.",
       "items": [
