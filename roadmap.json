@@ -249,7 +249,7 @@
       "status": "Todo",
       "start": "2026-06-04",
       "due": "2026-07-03",
-      "summary": "Broaden from DB‑to‑REST into the main scheduled sync cases: api_to_database_sync, api_to_api_sync, REST pagination, OData fetch, SOAP source/target where required.",
+      "summary": "Generalize the scheduled sync core into a verified sync_pipeline: a PipelineSpec stage model with a semantic validator, with database_to_api_sync preserved as an adapter over it. Add a REST fetch/source primitive, database write support, and inner‑object preservation hardening, then ship api_to_api_sync and api_to_database_sync presets with live QA.",
       "items": [
         {
           "n": 11,
@@ -330,7 +330,7 @@
       "status": "Todo",
       "start": "2026-06-01",
       "due": "2026-07-17",
-      "summary": "Read‑only discovery: OpenAPI, SOAP WSDL, OData metadata, DB schema, profile field inference, plus import_existing_integration for migration drafts to IntegrationSpecV1.",
+      "summary": "Read‑only discovery: OpenAPI, SOAP WSDL, OData metadata, DB schema, profile field inference, plus import_existing_integration for migration drafts to sync_pipeline / preset parameters and IntegrationSpecV1.",
       "items": [
         {
           "n": 13,
