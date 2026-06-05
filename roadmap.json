@@ -177,8 +177,8 @@
       "title": "Deploy and Test Orchestration",
       "title_override": "Deploy & Test Orchestration",
       "status": "In Progress",
-      "start": "2026-05-31",
-      "due": "2026-06-07",
+      "start": "2026-06-08",
+      "due": "2026-06-12",
       "summary": "One‑call deploy/test path: package, deploy, attach runtime, schedule, execute, monitor. Idempotent retries; structured failure diagnostics.",
       "items": [
         {
@@ -232,8 +232,8 @@
       "id": "M4",
       "title": "Agent Ergonomics",
       "status": "Todo",
-      "start": "2026-06-08",
-      "due": "2026-06-12",
+      "start": "2026-06-15",
+      "due": "2026-06-19",
       "summary": "Make the authoring flow self‑discoverable for a cold LLM client: structured error taxonomy, workflow hints in list_capabilities, schema access for IntegrationSpecV1 and each archetype, anti‑template labeled examples.",
       "items": [
         {
@@ -247,13 +247,38 @@
       "id": "M5",
       "title": "API Variants",
       "status": "Todo",
-      "start": "2026-06-15",
-      "due": "2026-07-17",
+      "start": "2026-06-04",
+      "due": "2026-07-03",
       "summary": "Broaden from DB‑to‑REST into the main scheduled sync cases: api_to_database_sync, api_to_api_sync, REST pagination, OData fetch, SOAP source/target where required.",
       "items": [
         {
           "n": 11,
           "title": "M5: API Variants",
+          "status": "Todo"
+        },
+        {
+          "n": 68,
+          "title": "M5.0 Update design docs and issue DAG for semantic sync pipeline",
+          "status": "Done"
+        },
+        {
+          "n": 69,
+          "title": "M5.1 Add PipelineSpec stage model and semantic validator",
+          "status": "Todo"
+        },
+        {
+          "n": 70,
+          "title": "M5.2 Add sync_pipeline process builder for verified linear flows",
+          "status": "Todo"
+        },
+        {
+          "n": 71,
+          "title": "M5.3 Preserve database_to_api_sync as adapter over sync_pipeline",
+          "status": "Todo"
+        },
+        {
+          "n": 72,
+          "title": "M5.4 Add REST fetch/source primitive",
           "status": "Todo"
         },
         {
@@ -265,6 +290,21 @@
           "n": 32,
           "title": "M5.6 Add database Send/write operation and write profile support",
           "status": "Todo"
+        },
+        {
+          "n": 73,
+          "title": "M5.7 Add api_to_api_sync preset over sync_pipeline",
+          "status": "Todo"
+        },
+        {
+          "n": 74,
+          "title": "M5.8 Add api_to_database_sync preset over sync_pipeline",
+          "status": "Todo"
+        },
+        {
+          "n": 75,
+          "title": "M5.9 Live QA for sync_pipeline presets",
+          "status": "Todo"
         }
       ]
     },
@@ -273,8 +313,8 @@
       "title": "Event and Listener Variants",
       "title_override": "Event & Listener Variants",
       "status": "Todo",
-      "start": "2026-06-29",
-      "due": "2026-07-03",
+      "start": "2026-07-06",
+      "due": "2026-07-10",
       "summary": "Event‑based integrations after scheduled syncs are stable: HTTP listener source primitive, listener archetypes (HTTP→DB, HTTP→REST), inbound validation, listener deploy/start/verify.",
       "items": [
         {
@@ -288,8 +328,8 @@
       "id": "M7",
       "title": "Discovery Tools",
       "status": "Todo",
-      "start": "2026-07-06",
-      "due": "2026-07-10",
+      "start": "2026-06-01",
+      "due": "2026-07-17",
       "summary": "Read‑only discovery: OpenAPI, SOAP WSDL, OData metadata, DB schema, profile field inference, plus import_existing_integration for migration drafts to IntegrationSpecV1.",
       "items": [
         {
@@ -304,7 +344,7 @@
         },
         {
           "n": 48,
-          "title": "M7.2 Add existing integration import to IntegrationSpecV1 drafts",
+          "title": "M7.2 Add existing integration import to pipeline drafts / preset parameters (and IntegrationSpecV1 drafts)",
           "status": "Todo"
         }
       ]
@@ -313,8 +353,8 @@
       "id": "M8",
       "title": "Archetype Composition",
       "status": "Todo",
-      "start": "2026-07-13",
-      "due": "2026-07-17",
+      "start": "2026-07-20",
+      "due": "2026-07-24",
       "summary": "Compose stable standalone archetypes into larger integrations with contract validation between parts. Composed output deploys and tests through normal orchestration.",
       "items": [
         {
