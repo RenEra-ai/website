@@ -257,13 +257,13 @@
           "status": "Todo"
         },
         {
-          "n": 32,
-          "title": "M5.1 Add database Send/write operation and write profile support",
+          "n": 50,
+          "title": "M5.5 Complete preservation hardening and REST conditional emission",
           "status": "Todo"
         },
         {
-          "n": 50,
-          "title": "M5.2 Inner-object preservation hardening + REST conditional emission (follow-up to #45)",
+          "n": 32,
+          "title": "M5.6 Add database Send/write operation and write profile support",
           "status": "Todo"
         }
       ]
