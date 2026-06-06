@@ -189,17 +189,17 @@
         {
           "n": 60,
           "title": "M3.1 Add orchestrate_deploy contract and build-result resolver",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 61,
           "title": "M3.2 Add idempotent package creation and deployment stage",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 62,
           "title": "M3.3 Add runtime attachment and schedule activation stage",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 63,
