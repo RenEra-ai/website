@@ -204,22 +204,22 @@
         {
           "n": 63,
           "title": "M3.4 Add optional test execution, polling, and log summary stage",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 64,
           "title": "M3.5 Compose and register orchestrate_deploy MCP tool",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 65,
           "title": "M3.6 Harden orchestration failures, idempotency, and cleanup planning",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 66,
           "title": "M3.7 Live QA orchestrate_deploy against M2 archetype output",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 51,
