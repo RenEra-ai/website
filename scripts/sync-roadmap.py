@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """
-Sync roadmap.json from the GitHub Project.
+Sync roadmap.json from the GitHub Project and open M<n> repo issues.
 
-Source of truth: GitHub Project #1 in the RenEra-ai org.
+Source of truth: GitHub Project #1 in the RenEra-ai org, plus open
+RenEra-ai/boomi-mcp-server issues whose titles start with an M<n> prefix.
 
 The website's editorial model is:
-    - GitHub Project owns structure and raw titles.
+    - GitHub Project owns status/dates when an issue is present there.
+    - Open M<n> GitHub issues keep the public roadmap current before project triage.
     - roadmap.json carries milestone summaries and optional curated title overrides.
     - The frontend renders `title_override || title` everywhere a title is shown.
 
@@ -13,9 +15,9 @@ This script:
     - Updates milestone & item `status`, `start`, `due` from the project.
     - Overwrites the raw `title` field (per milestone and per sub-item) so renames
       flow through. `title_override` (curator-owned) is never touched.
-    - Adds new items that appear in the project but not in roadmap.json.
-    - Drops sub-items that are no longer in the project.
-    - Adds new milestones when the project introduces an unknown `M<n>` bucket.
+    - Adds new items that appear in the project or open M<n> issues but not in roadmap.json.
+    - Drops sub-items that are no longer in the project or open M<n> issues.
+    - Adds new milestones when GitHub introduces an unknown `M<n>` bucket.
       The new milestone is appended with an empty summary; a curator should fill it.
     - On the first run against the v1 schema, it migrates pre-existing curated
       milestone titles into `title_override` when they differ from the project's
@@ -45,6 +47,7 @@ ROADMAP_PATH = REPO_ROOT / "roadmap.json"
 
 PROJECT_NUMBER = 1
 PROJECT_OWNER = "RenEra-ai"
+ISSUE_REPO = "RenEra-ai/boomi-mcp-server"
 
 ROADMAP_SCHEMA_VERSION = 2
 
@@ -53,6 +56,9 @@ MILESTONE_PARENT_RE = re.compile(r"^M\d+:")
 # Splits a GH project milestone label like "M2 database_to_api_sync Vertical Slice"
 # into ("M2", "database_to_api_sync Vertical Slice").
 MILESTONE_LABEL_RE = re.compile(r"^(M\d+)\b\s*(.*)$")
+# Matches roadmap issue titles like "M7.3 Add ..." or "M9: Operational ...".
+ISSUE_BUCKET_RE = re.compile(r"^(M\d+)(?::|\.\d+[A-Za-z]*\b)")
+ISSUE_PARENT_TITLE_RE = re.compile(r"^M\d+:\s*(.*)$")
 
 MILESTONE_FIELD_ORDER = ["id", "title", "title_override", "status", "start", "due", "summary", "items"]
 ITEM_FIELD_ORDER = ["n", "title", "title_override", "status"]
@@ -76,6 +82,30 @@ def fetch_project_items() -> list[dict]:
     return data.get("items", [])
 
 
+def fetch_open_issues() -> list[dict]:
+    """Call `gh issue list` and return open repository issues."""
+    cmd = [
+        "gh",
+        "issue",
+        "list",
+        "--repo",
+        ISSUE_REPO,
+        "--state",
+        "open",
+        "--limit",
+        "200",
+        "--json",
+        "number,title",
+    ]
+    try:
+        proc = subprocess.run(cmd, check=True, capture_output=True, text=True)
+    except FileNotFoundError:
+        sys.exit("error: `gh` not on PATH. Install GitHub CLI or set GH_TOKEN in CI.")
+    except subprocess.CalledProcessError as e:
+        sys.exit(f"error: gh issue list failed:\n{e.stderr.strip()}")
+    return json.loads(proc.stdout)
+
+
 def index_project_items(items: list[dict]) -> tuple[dict[str, dict], dict[int, dict]]:
     """Index project items globally and by their M<n> milestone id.
 
@@ -96,6 +126,7 @@ def index_project_items(items: list[dict]) -> tuple[dict[str, dict], dict[int, d
             "title": content.get("title") or "",
             "start": it.get("start"),
             "due": it.get("due"),
+            "source": "project",
         }
         by_issue[num] = ref
         ms_title = (it.get("milestone") or {}).get("title") or ""
@@ -115,6 +146,47 @@ def index_project_items(items: list[dict]) -> tuple[dict[str, dict], dict[int, d
             )
         bucket["items"][num] = ref
     return buckets, by_issue
+
+
+def merge_open_issue_buckets(
+    buckets: dict[str, dict],
+    by_issue: dict[int, dict],
+    issues: list[dict],
+) -> None:
+    """Merge open M<n> issues that are not yet bucketed in the GitHub Project.
+
+    Project metadata wins when present. This only supplies missing backlog shape
+    for newly opened roadmap issues before they are added to the project board.
+    """
+    bucketed = {n for b in buckets.values() for n in b["items"]}
+    for issue in issues:
+        num = issue.get("number")
+        title = issue.get("title") or ""
+        if not isinstance(num, int):
+            continue
+        match = ISSUE_BUCKET_RE.match(title)
+        if not match or num in bucketed:
+            continue
+
+        ref = by_issue.get(num)
+        if ref is None:
+            ref = {
+                "n": num,
+                "status": "Todo",
+                "title": title,
+                "start": None,
+                "due": None,
+                "source": "issue",
+            }
+            by_issue[num] = ref
+
+        mid = match.group(1)
+        bucket = buckets.setdefault(mid, {"label_tail": "", "items": {}})
+        if not bucket["label_tail"]:
+            parent = ISSUE_PARENT_TITLE_RE.match(title)
+            if parent:
+                bucket["label_tail"] = parent.group(1).strip()
+        bucket["items"][num] = ref
 
 
 def milestone_parent_issue_number(milestone: dict) -> int | None:
@@ -204,19 +276,25 @@ def sync_milestone_rollup(m: dict, refs: dict[int, dict], mid: str, changes: lis
         changes.append(f"{mid} status: {m.get('status')!r} -> {parent_ref['status']!r}")
         m["status"] = parent_ref["status"]
 
-    starts = [
-        refs[s["n"]]["start"]
+    refs_for_milestone = [
+        refs[s["n"]]
         for s in m["items"]
-        if s.get("n") in refs and refs[s["n"]].get("start")
+        if s.get("n") in refs
+    ]
+    has_project_refs = any(ref.get("source") == "project" for ref in refs_for_milestone)
+    starts = [
+        ref["start"]
+        for ref in refs_for_milestone
+        if ref.get("start")
     ]
     dues = [
-        refs[s["n"]]["due"]
-        for s in m["items"]
-        if s.get("n") in refs and refs[s["n"]].get("due")
+        ref["due"]
+        for ref in refs_for_milestone
+        if ref.get("due")
     ]
-    new_start = min(starts) if starts else None
+    new_start = min(starts) if starts else (None if has_project_refs else m.get("start"))
     _update_field(m, "start", new_start, mid, changes)
-    new_due = max(dues) if dues else None
+    new_due = max(dues) if dues else (None if has_project_refs else m.get("due"))
     _update_field(m, "due", new_due, mid, changes)
 
 
@@ -424,6 +502,8 @@ def main() -> int:
     roadmap = json.loads(ROADMAP_PATH.read_text(encoding="utf-8"))
     items = fetch_project_items()
     buckets, by_issue = index_project_items(items)
+    open_issues = fetch_open_issues()
+    merge_open_issue_buckets(buckets, by_issue, open_issues)
 
     if not by_issue:
         sys.exit("error: no items returned from gh project item-list (auth or project access?)")
@@ -453,9 +533,9 @@ def main() -> int:
 
     total_items = len(by_issue)
     if n == 0:
-        print(f"sync-roadmap: no changes ({total_items} project items inspected)")
+        print(f"sync-roadmap: no changes ({total_items} tracked issues inspected)")
     else:
-        print(f"sync-roadmap: {n} change(s) across {total_items} project items")
+        print(f"sync-roadmap: {n} change(s) across {total_items} tracked issues")
         for d in descriptions:
             print(f"  - {d}")
     return 0

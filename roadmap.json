@@ -234,7 +234,7 @@
       "status": "Todo",
       "start": "2026-06-15",
       "due": "2026-06-19",
-      "summary": "Make the authoring flow self‑discoverable for a cold LLM client: structured error taxonomy, workflow hints in list_capabilities, schema access for IntegrationSpecV1 and each archetype, anti‑template labeled examples.",
+      "summary": "Make the authoring flow self-discoverable for a cold LLM client: structured error taxonomy, workflow hints, schema access, anti-template examples, and Companion-informed operating doctrine around profile-first routing, typed tools, bounded experimentation, and behavioral verification.",
       "items": [
         {
           "n": 10,
@@ -315,7 +315,7 @@
       "status": "Todo",
       "start": "2026-07-06",
       "due": "2026-07-10",
-      "summary": "Event‑based integrations after scheduled syncs are stable: HTTP listener source primitive, listener archetypes (HTTP→DB, HTTP→REST), inbound validation, listener deploy/start/verify.",
+      "summary": "Event-based integrations after scheduled syncs are stable: HTTP listener source primitive, listener archetypes (HTTP->DB, HTTP->REST), inbound validation, listener deploy/start/verify, API-tier preflight, route-collision checks, and listener-specific runtime invariants.",
       "items": [
         {
           "n": 12,
@@ -330,7 +330,7 @@
       "status": "Todo",
       "start": "2026-07-13",
       "due": "2026-07-17",
-      "summary": "Read‑only discovery: OpenAPI, SOAP WSDL, OData metadata, DB schema, profile field inference, plus import_existing_integration for migration drafts to sync_pipeline / preset parameters and IntegrationSpecV1.",
+      "summary": "Read-only discovery for source and target facts: OpenAPI, SOAP WSDL, OData metadata, DB schema, profile inference, migration drafts, reusable live connection suggestions, and Boomi Marketplace recipe search for reference patterns.",
       "items": [
         {
           "n": 13,
@@ -346,6 +346,16 @@
           "n": 48,
           "title": "M7.2 Add existing integration import to pipeline drafts / preset parameters (and IntegrationSpecV1 drafts)",
           "status": "Todo"
+        },
+        {
+          "n": 83,
+          "title": "M7.3 Add suggest_connection_reuse read-only discovery tool",
+          "status": "Todo"
+        },
+        {
+          "n": 84,
+          "title": "M7.4 Add read-only Boomi Marketplace recipe search",
+          "status": "Todo"
         }
       ]
     },
@@ -360,6 +370,51 @@
         {
           "n": 14,
           "title": "M8: Archetype Composition",
+          "status": "Todo"
+        }
+      ]
+    },
+    {
+      "id": "M9",
+      "title": "Operational Knowledge and Guardrails",
+      "status": "Todo",
+      "start": "2026-07-27",
+      "due": "2026-07-31",
+      "summary": "Adopt Boomi Companion's medium-agnostic knowledge and control artifacts into the MCP: operational gotcha search, symptom routing, raw API write guards, process graph verification, behavior-verified deploy semantics, and builder invariant locking while preserving typed JSON-to-XML builders.",
+      "items": [
+        {
+          "n": 76,
+          "title": "M9: Operational Knowledge and Guardrails",
+          "status": "Todo"
+        },
+        {
+          "n": 77,
+          "title": "M9.1 Add operational gotcha knowledge base and search_boomi_gotchas tool",
+          "status": "Todo"
+        },
+        {
+          "n": 78,
+          "title": "M9.2 Route troubleshooting symptoms through the gotcha catalog",
+          "status": "Todo"
+        },
+        {
+          "n": 79,
+          "title": "M9.3 Gate invoke_boomi_api writes behind confirm_write",
+          "status": "Todo"
+        },
+        {
+          "n": 80,
+          "title": "M9.4 Add process-graph integrity verification to build_integration verify",
+          "status": "Todo"
+        },
+        {
+          "n": 81,
+          "title": "M9.5 Add require_test_logs and behavior-verified marker to orchestrate_deploy",
+          "status": "Todo"
+        },
+        {
+          "n": 82,
+          "title": "M9.6 Audit and lock builder XML invariants from the Companion catalog",
           "status": "Todo"
         }
       ]

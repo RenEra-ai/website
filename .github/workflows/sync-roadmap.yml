@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Sync roadmap.json from GitHub Project
+      - name: Sync roadmap.json from GitHub Project and issues
         env:
           # Fine-grained PAT with read:project on the RenEra-ai org.
           # Stored as repo secret PROJECTS_READ_TOKEN.
@@ -40,5 +40,5 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add roadmap.json
-          git commit -m "chore: sync roadmap from GitHub Project"
+          git commit -m "chore: sync roadmap from GitHub"
           git push
