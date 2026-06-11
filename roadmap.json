@@ -231,7 +231,7 @@
     {
       "id": "M4",
       "title": "Agent Ergonomics",
-      "status": "Todo",
+      "status": "Done",
       "start": "2026-06-15",
       "due": "2026-06-19",
       "summary": "Make the authoring flow self-discoverable for a cold LLM client: structured error taxonomy, workflow hints, schema access, anti-template examples, and Companion-informed operating doctrine around profile-first routing, typed tools, bounded experimentation, and behavioral verification.",
@@ -239,7 +239,7 @@
         {
           "n": 10,
           "title": "M4: Agent Ergonomics",
-          "status": "Todo"
+          "status": "Done"
         }
       ]
     },
@@ -395,11 +395,6 @@
         {
           "n": 78,
           "title": "M9.2 Route troubleshooting symptoms through the gotcha catalog",
-          "status": "Todo"
-        },
-        {
-          "n": 79,
-          "title": "M9.3 Gate invoke_boomi_api writes behind confirm_write",
           "status": "Todo"
         },
         {
