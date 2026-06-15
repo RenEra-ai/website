@@ -233,42 +233,27 @@
       "title": "Agent Ergonomics",
       "status": "Done",
       "start": "2026-06-15",
-      "due": "2026-06-26",
+      "due": "2026-06-19",
       "summary": "Make the authoring flow self-discoverable for a cold LLM client: structured error taxonomy, workflow hints, schema access, anti-template examples, and Companion-informed operating doctrine around profile-first routing, typed tools, bounded experimentation, and behavioral verification.",
       "items": [
         {
           "n": 10,
           "title": "M4: Agent Ergonomics",
           "status": "Done"
-        },
+        }
+      ]
+    },
+    {
+      "id": "M4.5",
+      "title": "Design Doctrine and Reliability",
+      "status": "Todo",
+      "start": "2026-06-16",
+      "due": "2026-06-26",
+      "summary": "Harden the authoring path toward production-pattern reliability: a design-doctrine knowledge surface, archetype DLQ and Try/Catch reconciliation with verified builder modes, un-gated bounded retry backed by live retryCount evidence, verified Notify and standalone Process Call/facade emission, environment-extension declarations for connection fields, account governance, and a live-QA capstone — plus a stretch read-only design-brief assembler.",
+      "items": [
         {
-          "n": 92,
-          "title": "M4.5.7 Emit environment-extension declarations for connection fields",
-          "status": "Todo"
-        },
-        {
-          "n": 91,
-          "title": "M4.5.6 Live QA capstone: production-pattern reference build on minimal connectors",
-          "status": "Todo"
-        },
-        {
-          "n": 90,
-          "title": "M4.5.5 Add verified standalone Process Call and wrapper-parent (facade) emission",
-          "status": "Todo"
-        },
-        {
-          "n": 89,
-          "title": "M4.5.4 Add verified Notify step emission for catch paths",
-          "status": "Todo"
-        },
-        {
-          "n": 88,
-          "title": "M4.5.3 Un-gate bounded retry (R1b): live retryCount evidence and RetryPolicy contract reconciliation",
-          "status": "Todo"
-        },
-        {
-          "n": 87,
-          "title": "M4.5.2 Align archetype DLQ contract with verified builder modes and wire Try/Catch+DLQ through database_to_api_sync",
+          "n": 85,
+          "title": "M4.5: Design Doctrine and Reliability",
           "status": "Todo"
         },
         {
@@ -277,8 +262,33 @@
           "status": "Todo"
         },
         {
-          "n": 85,
-          "title": "M4.5: Design Doctrine and Reliability",
+          "n": 87,
+          "title": "M4.5.2 Align archetype DLQ contract with verified builder modes and wire Try/Catch+DLQ through database_to_api_sync",
+          "status": "Todo"
+        },
+        {
+          "n": 88,
+          "title": "M4.5.3 Un-gate bounded retry (R1b): live retryCount evidence and RetryPolicy contract reconciliation",
+          "status": "Todo"
+        },
+        {
+          "n": 89,
+          "title": "M4.5.4 Add verified Notify step emission for catch paths",
+          "status": "Todo"
+        },
+        {
+          "n": 90,
+          "title": "M4.5.5 Add verified standalone Process Call and wrapper-parent (facade) emission",
+          "status": "Todo"
+        },
+        {
+          "n": 91,
+          "title": "M4.5.6 Live QA capstone: production-pattern reference build on minimal connectors",
+          "status": "Todo"
+        },
+        {
+          "n": 92,
+          "title": "M4.5.7 Emit environment-extension declarations for connection fields",
           "status": "Todo"
         },
         {

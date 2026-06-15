@@ -51,14 +51,20 @@ ISSUE_REPO = "RenEra-ai/boomi-mcp-server"
 
 ROADMAP_SCHEMA_VERSION = 2
 
-# Matches the milestone "parent" sub-item title (e.g. "M2: First vertical slice").
-MILESTONE_PARENT_RE = re.compile(r"^M\d+:")
+# Matches the milestone "parent" sub-item title (e.g. "M2: First vertical slice"
+# or "M4.5: Design Doctrine and Reliability").
+MILESTONE_PARENT_RE = re.compile(r"^M\d+(?:\.\d+)?:")
 # Splits a GH project milestone label like "M2 database_to_api_sync Vertical Slice"
-# into ("M2", "database_to_api_sync Vertical Slice").
-MILESTONE_LABEL_RE = re.compile(r"^(M\d+)\b\s*(.*)$")
+# or "M4.5 Design Doctrine and Reliability" into (id, tail). The id may carry a
+# minor (e.g. M4.5) so a sub-milestone epic gets its own bucket instead of being
+# folded into its integer parent (M4).
+MILESTONE_LABEL_RE = re.compile(r"^(M\d+(?:\.\d+)?)\b\s*(.*)$")
 # Matches roadmap issue titles like "M7.3 Add ..." or "M9: Operational ...".
+# The two-level form ("M4.5:" or "M4.5.1 ...") buckets under the M4.5 epic; every
+# other form buckets under its integer milestone (M7.3 -> M7, M2.6a -> M2).
+ISSUE_BUCKET_2L_RE = re.compile(r"^(M\d+\.\d+)(?::|\.\d)")
 ISSUE_BUCKET_RE = re.compile(r"^(M\d+)(?::|\.\d+[A-Za-z]*\b)")
-ISSUE_PARENT_TITLE_RE = re.compile(r"^M\d+:\s*(.*)$")
+ISSUE_PARENT_TITLE_RE = re.compile(r"^M\d+(?:\.\d+)?:\s*(.*)$")
 
 MILESTONE_FIELD_ORDER = ["id", "title", "title_override", "status", "start", "due", "summary", "items"]
 ITEM_FIELD_ORDER = ["n", "title", "title_override", "status"]
@@ -164,7 +170,7 @@ def merge_open_issue_buckets(
         title = issue.get("title") or ""
         if not isinstance(num, int):
             continue
-        match = ISSUE_BUCKET_RE.match(title)
+        match = ISSUE_BUCKET_2L_RE.match(title) or ISSUE_BUCKET_RE.match(title)
         if not match or num in bucketed:
             continue
 
@@ -216,16 +222,18 @@ def normalize_item(it: dict) -> dict:
     return out
 
 
-def milestone_sort_key(mid: str) -> tuple[int, str]:
-    match = re.match(r"^M(\d+)$", str(mid))
+def milestone_sort_key(mid: str) -> tuple[int, int, str]:
+    match = re.match(r"^M(\d+)(?:\.(\d+))?$", str(mid))
     if match:
-        return (int(match.group(1)), str(mid))
-    return (sys.maxsize, str(mid))
+        major = int(match.group(1))
+        minor = int(match.group(2)) if match.group(2) else 0
+        return (major, minor, str(mid))
+    return (sys.maxsize, sys.maxsize, str(mid))
 
 
-_ITEM_PARENT_RE = re.compile(r"^M\d+:")
-_ITEM_NUMBERED_RE = re.compile(r"^M\d+\.(\d+)([A-Za-z]*)\b")
-_ITEM_LETTER_RE = re.compile(r"^M\d+\.([A-Za-z]+)")
+_ITEM_PARENT_RE = re.compile(r"^M\d+(?:\.\d+)?:")
+_ITEM_NUMBERED_RE = re.compile(r"^M\d+(?:\.\d+)?\.(\d+)([A-Za-z]*)\b")
+_ITEM_LETTER_RE = re.compile(r"^M\d+(?:\.\d+)?\.([A-Za-z]+)")
 
 
 def item_sort_key(item: dict) -> tuple[int, int, str, int]:
