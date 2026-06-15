@@ -259,17 +259,17 @@
         {
           "n": 86,
           "title": "M4.5.1 Add integration design doctrine knowledge surface (design_doctrine)",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 87,
           "title": "M4.5.2 Align archetype DLQ contract with verified builder modes and wire Try/Catch+DLQ through database_to_api_sync",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 88,
           "title": "M4.5.3 Un-gate bounded retry (R1b): live retryCount evidence and RetryPolicy contract reconciliation",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 89,
