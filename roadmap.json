@@ -233,7 +233,7 @@
       "title": "Agent Ergonomics",
       "status": "Done",
       "start": "2026-06-15",
-      "due": "2026-06-19",
+      "due": "2026-06-26",
       "summary": "Make the authoring flow self-discoverable for a cold LLM client: structured error taxonomy, workflow hints, schema access, anti-template examples, and Companion-informed operating doctrine around profile-first routing, typed tools, bounded experimentation, and behavioral verification.",
       "items": [
         {
@@ -280,6 +280,16 @@
           "n": 85,
           "title": "M4.5: Design Doctrine and Reliability",
           "status": "Todo"
+        },
+        {
+          "n": 93,
+          "title": "M4.5.8 Add account_governance knowledge surface (folder/naming/role governance)",
+          "status": "Todo"
+        },
+        {
+          "n": 94,
+          "title": "M4.5.9 (stretch) plan_integration_design read-only design-brief assembler",
+          "status": "Todo"
         }
       ]
     },
@@ -287,8 +297,8 @@
       "id": "M5",
       "title": "API Variants",
       "status": "Todo",
-      "start": "2026-06-22",
-      "due": "2026-07-03",
+      "start": "2026-07-06",
+      "due": "2026-07-17",
       "summary": "Generalize the scheduled sync core into a verified sync_pipeline: a PipelineSpec stage model with a semantic validator, with database_to_api_sync preserved as an adapter over it. Add a REST fetch/source primitive, database write support, and inner‑object preservation hardening, then ship api_to_api_sync and api_to_database_sync presets with live QA.",
       "items": [
         {
@@ -353,8 +363,8 @@
       "title": "Event and Listener Variants",
       "title_override": "Event & Listener Variants",
       "status": "Todo",
-      "start": "2026-07-06",
-      "due": "2026-07-10",
+      "start": "2026-07-27",
+      "due": "2026-07-31",
       "summary": "Event-based integrations after scheduled syncs are stable: HTTP listener source primitive, listener archetypes (HTTP->DB, HTTP->REST), inbound validation, listener deploy/start/verify, API-tier preflight, route-collision checks, and listener-specific runtime invariants.",
       "items": [
         {
@@ -368,8 +378,8 @@
       "id": "M7",
       "title": "Discovery Tools",
       "status": "Todo",
-      "start": "2026-07-13",
-      "due": "2026-07-17",
+      "start": "2026-08-03",
+      "due": "2026-08-07",
       "summary": "Read-only discovery for source and target facts: OpenAPI, SOAP WSDL, OData metadata, DB schema, profile inference, migration drafts, reusable live connection suggestions, and Boomi Marketplace recipe search for reference patterns.",
       "items": [
         {
@@ -418,8 +428,8 @@
       "id": "M9",
       "title": "Operational Knowledge and Guardrails",
       "status": "Todo",
-      "start": "2026-07-27",
-      "due": "2026-07-31",
+      "start": "2026-06-29",
+      "due": "2026-07-03",
       "summary": "Adopt Boomi Companion's medium-agnostic knowledge and control artifacts into the MCP: operational gotcha search, symptom routing, raw API write guards, process graph verification, behavior-verified deploy semantics, and builder invariant locking while preserving typed JSON-to-XML builders.",
       "items": [
         {
@@ -436,6 +446,11 @@
           "n": 78,
           "title": "M9.2 Route troubleshooting symptoms through the gotcha catalog",
           "status": "Todo"
+        },
+        {
+          "n": 79,
+          "title": "M9.3 Gate invoke_boomi_api writes behind confirm_write",
+          "status": "Done"
         },
         {
           "n": 80,
