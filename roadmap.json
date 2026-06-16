@@ -274,12 +274,12 @@
         {
           "n": 89,
           "title": "M4.5.4 Add verified Notify step emission for catch paths",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 90,
           "title": "M4.5.5 Add verified standalone Process Call and wrapper-parent (facade) emission",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 91,
