@@ -449,7 +449,7 @@
       "title": "Operational Knowledge and Guardrails",
       "status": "Todo",
       "start": "2026-06-29",
-      "due": "2026-07-03",
+      "due": "2026-07-04",
       "summary": "Adopt Boomi Companion's medium-agnostic knowledge and control artifacts into the MCP: operational gotcha search, symptom routing, raw API write guards, process graph verification, behavior-verified deploy semantics, and builder invariant locking while preserving typed JSON-to-XML builders.",
       "items": [
         {
