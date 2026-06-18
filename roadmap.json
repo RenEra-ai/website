@@ -342,6 +342,11 @@
           "status": "Todo"
         },
         {
+          "n": 96,
+          "title": "M5.4a Add typed REST runtime binding model for connector step dynamicProperties",
+          "status": "Todo"
+        },
+        {
           "n": 50,
           "title": "M5.5 Complete preservation hardening and REST conditional emission",
           "status": "Todo"
@@ -416,6 +421,11 @@
           "n": 84,
           "title": "M7.4 Add read-only Boomi Marketplace recipe search",
           "status": "Todo"
+        },
+        {
+          "n": 95,
+          "title": "M7.5 Add live existing-profile index discovery and map validation",
+          "status": "Todo"
         }
       ]
     },
@@ -475,6 +485,11 @@
         {
           "n": 82,
           "title": "M9.6 Audit and lock builder XML invariants from the Companion catalog",
+          "status": "Todo"
+        },
+        {
+          "n": 97,
+          "title": "M9.7 Add safe existing-component edit workflow: pull -> structured patch -> diff -> push",
           "status": "Todo"
         }
       ]
