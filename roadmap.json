@@ -246,7 +246,7 @@
     {
       "id": "M4.5",
       "title": "Design Doctrine and Reliability",
-      "status": "Todo",
+      "status": "In Progress",
       "start": "2026-06-16",
       "due": "2026-06-26",
       "summary": "Harden the authoring path toward production-pattern reliability: a design-doctrine knowledge surface, archetype DLQ and Try/Catch reconciliation with verified builder modes, un-gated bounded retry backed by live retryCount evidence, verified Notify and standalone Process Call/facade emission, environment-extension declarations for connection fields, account governance, and a live-QA capstone — plus a stretch read-only design-brief assembler.",
@@ -254,7 +254,7 @@
         {
           "n": 85,
           "title": "M4.5: Design Doctrine and Reliability",
-          "status": "Todo"
+          "status": "In Progress"
         },
         {
           "n": 86,
