@@ -289,7 +289,7 @@
         {
           "n": 100,
           "title": "M4.5.6.2 — deferred builder gaps: dynamic REST path replacement (G2) + DLQ capture hardening (G4)",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 92,
@@ -299,7 +299,7 @@
         {
           "n": 93,
           "title": "M4.5.8 Add account_governance knowledge surface (folder/naming/role governance)",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 94,
