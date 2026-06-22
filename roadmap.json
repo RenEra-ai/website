@@ -246,7 +246,7 @@
     {
       "id": "M4.5",
       "title": "Design Doctrine and Reliability",
-      "status": "In Progress",
+      "status": "Done",
       "start": "2026-06-16",
       "due": "2026-06-26",
       "summary": "Harden the authoring path toward production-pattern reliability: a design-doctrine knowledge surface, archetype DLQ and Try/Catch reconciliation with verified builder modes, un-gated bounded retry backed by live retryCount evidence, verified Notify and standalone Process Call/facade emission, environment-extension declarations for connection fields, account governance, and a live-QA capstone — plus a stretch read-only design-brief assembler.",
@@ -254,7 +254,7 @@
         {
           "n": 85,
           "title": "M4.5: Design Doctrine and Reliability",
-          "status": "In Progress"
+          "status": "Done"
         },
         {
           "n": 86,
@@ -304,7 +304,7 @@
         {
           "n": 94,
           "title": "M4.5.9 (stretch) plan_integration_design read-only design-brief assembler",
-          "status": "Todo"
+          "status": "Done"
         }
       ]
     },
@@ -452,7 +452,7 @@
     {
       "id": "M9",
       "title": "Operational Knowledge and Guardrails",
-      "status": "Todo",
+      "status": "In Progress",
       "start": "2026-06-29",
       "due": "2026-07-04",
       "summary": "Adopt Boomi Companion's medium-agnostic knowledge and control artifacts into the MCP: operational gotcha search, symptom routing, raw API write guards, process graph verification, behavior-verified deploy semantics, and builder invariant locking while preserving typed JSON-to-XML builders.",
@@ -460,17 +460,17 @@
         {
           "n": 76,
           "title": "M9: Operational Knowledge and Guardrails",
-          "status": "Todo"
+          "status": "In Progress"
         },
         {
           "n": 77,
           "title": "M9.1 Add operational gotcha knowledge base and search_boomi_gotchas tool",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 78,
           "title": "M9.2 Route troubleshooting symptoms through the gotcha catalog",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 79,
@@ -480,7 +480,7 @@
         {
           "n": 80,
           "title": "M9.4 Add process-graph integrity verification to build_integration verify",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 81,
