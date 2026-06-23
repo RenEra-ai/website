@@ -452,7 +452,7 @@
     {
       "id": "M9",
       "title": "Operational Knowledge and Guardrails",
-      "status": "In Progress",
+      "status": "Done",
       "start": "2026-06-29",
       "due": "2026-07-04",
       "summary": "Adopt Boomi Companion's medium-agnostic knowledge and control artifacts into the MCP: operational gotcha search, symptom routing, raw API write guards, process graph verification, behavior-verified deploy semantics, and builder invariant locking while preserving typed JSON-to-XML builders.",
@@ -460,7 +460,7 @@
         {
           "n": 76,
           "title": "M9: Operational Knowledge and Guardrails",
-          "status": "In Progress"
+          "status": "Done"
         },
         {
           "n": 77,
@@ -485,17 +485,17 @@
         {
           "n": 81,
           "title": "M9.5 Add require_test_logs and behavior-verified marker to orchestrate_deploy",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 82,
           "title": "M9.6 Audit and lock builder XML invariants from the Companion catalog",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 97,
           "title": "M9.7 Add safe existing-component edit workflow: pull -> structured patch -> diff -> push",
-          "status": "Todo"
+          "status": "Done"
         }
       ]
     }
