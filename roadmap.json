@@ -311,7 +311,7 @@
     {
       "id": "M5",
       "title": "API Variants",
-      "status": "Todo",
+      "status": "In Progress",
       "start": "2026-07-06",
       "due": "2026-07-17",
       "summary": "Generalize the scheduled sync core into a verified sync_pipeline: a PipelineSpec stage model with a semantic validator, with database_to_api_sync preserved as an adapter over it. Add a REST fetch/source primitive, database write support, and inner‑object preservation hardening, then ship api_to_api_sync and api_to_database_sync presets with live QA.",
@@ -319,7 +319,7 @@
         {
           "n": 11,
           "title": "M5: API Variants",
-          "status": "Todo"
+          "status": "In Progress"
         },
         {
           "n": 68,
@@ -495,6 +495,11 @@
         {
           "n": 97,
           "title": "M9.7 Add safe existing-component edit workflow: pull -> structured patch -> diff -> push",
+          "status": "Done"
+        },
+        {
+          "n": 102,
+          "title": "M9.8 Enforce integration-build basics as mechanical builder guards (connection dedup, extensions, naming, graph/shape lints)",
           "status": "Done"
         }
       ]
