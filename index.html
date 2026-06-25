@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=10">
+    <link rel="stylesheet" href="styles.css?v=11">
 </head>
 <body>
     <div class="grain" aria-hidden="true"></div>
@@ -28,7 +28,7 @@
             <a class="nav__brand" href="/" aria-label="RenEra.ai home">
                 <img src="logo-mark.png" alt="RenEra.ai" class="nav__logo">
             </a>
-            <nav class="nav__links" aria-label="Primary">
+            <nav class="nav__links" id="primary-nav" aria-label="Primary">
                 <a href="#manifesto">Manifesto</a>
                 <a href="#product">Product</a>
                 <a href="#roadmap">Roadmap</a>
@@ -38,6 +38,9 @@
                 <span>GitHub</span>
                 <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M4.5 3.5h6a1 1 0 0 1 1 1v6a.75.75 0 0 1-1.5 0V6.31L4.78 12.03a.75.75 0 1 1-1.06-1.06L9.44 5.25H5.5a.75.75 0 0 1 0-1.5h-1Z"/></svg>
             </a>
+            <button class="nav__toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
@@ -221,6 +224,22 @@
             el.scrollIntoView({ behavior: 'smooth', block: 'start' });
           });
         });
+
+        // Mobile menu toggle
+        var navEl = document.querySelector('.nav');
+        var navToggle = document.querySelector('.nav__toggle');
+        if (navEl && navToggle) {
+          navToggle.addEventListener('click', function () {
+            var open = navEl.classList.toggle('nav--open');
+            navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+          });
+          navEl.querySelectorAll('.nav__links a').forEach(function (a) {
+            a.addEventListener('click', function () {
+              navEl.classList.remove('nav--open');
+              navToggle.setAttribute('aria-expanded', 'false');
+            });
+          });
+        }
 
         // roadmap.json is regenerated daily by the sync workflow, so never serve
         // a cached copy — a static ?v= token would pin stale data between deploys.

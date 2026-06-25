@@ -195,9 +195,60 @@ img { display: block; max-width: 100%; }
     transform: translateY(-1px);
 }
 
+.nav__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0 11px;
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+    background: transparent;
+    cursor: pointer;
+}
+.nav__toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform .25s ease, opacity .2s ease;
+}
+.nav--open .nav__toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav--open .nav__toggle span:nth-child(2) { opacity: 0; }
+.nav--open .nav__toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
 @media (max-width: 760px) {
-    .nav__inner { grid-template-columns: auto 1fr auto; gap: 12px; }
-    .nav__links { display: none; }
+    .nav__inner { display: flex; align-items: center; gap: 12px; }
+    .nav__cta { margin-left: auto; }
+    .nav__toggle { display: inline-flex; }
+    .nav__links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 10px var(--pad) 20px;
+        background: rgba(10, 6, 18, 0.97);
+        backdrop-filter: blur(16px) saturate(140%);
+        -webkit-backdrop-filter: blur(16px) saturate(140%);
+        border-bottom: 1px solid var(--line);
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity .2s ease, transform .2s ease;
+    }
+    .nav__links a { width: 100%; padding: 12px 2px; font-size: 14px; }
+    .nav--open .nav__links {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
 }
 
 /* --------------------------- Layout --------------------------- */
@@ -312,6 +363,7 @@ section { position: relative; padding: clamp(48px, 8vh, 96px) 0; }
     font-family: var(--sans);
     font-weight: 700;
     letter-spacing: -0.04em;
+    padding-bottom: 0.2em;
     background: linear-gradient(180deg, #fdf4ff 0%, #c084fc 75%, #a855f7 100%);
     -webkit-background-clip: text;
     background-clip: text;
