@@ -210,7 +210,7 @@ main {
     padding: 0 var(--pad);
 }
 
-section { position: relative; padding: clamp(80px, 12vh, 160px) 0; }
+section { position: relative; padding: clamp(48px, 8vh, 96px) 0; }
 
 .section__title {
     font-family: var(--serif);
@@ -255,8 +255,8 @@ section { position: relative; padding: clamp(80px, 12vh, 160px) 0; }
 /* ---------------------------- Hero ---------------------------- */
 
 .hero {
-    padding-top: clamp(60px, 9vh, 120px);
-    padding-bottom: clamp(60px, 10vh, 140px);
+    padding-top: clamp(40px, 6vh, 80px);
+    padding-bottom: clamp(48px, 8vh, 96px);
 }
 
 .hero__eyebrow {
@@ -323,7 +323,7 @@ section { position: relative; padding: clamp(80px, 12vh, 160px) 0; }
 }
 
 .hero__lead {
-    max-width: 58ch;
+    max-width: none;
     color: var(--ink-soft);
     font-size: clamp(17px, 1.5vw, 20px);
     line-height: 1.55;
@@ -379,7 +379,6 @@ section { position: relative; padding: clamp(80px, 12vh, 160px) 0; }
     margin: 0;
     padding: 22px 0 0;
     border-top: 1px solid var(--line);
-    max-width: 760px;
 }
 .hero__stats > div {
     padding: 8px 22px 0 0;
