@@ -324,7 +324,7 @@
         {
           "n": 69,
           "title": "M5.1 Add PipelineSpec stage model and semantic validator",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 70,
@@ -521,17 +521,17 @@
         {
           "n": 105,
           "title": "M10.1 Add doctrine->emitter consistency test for emittable shapes",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 106,
           "title": "M10.2 Add Data Process shape coverage (standalone, process-level)",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 107,
           "title": "M10.3 Add Return Documents shape coverage",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 108,
