@@ -287,11 +287,6 @@
           "status": "Done"
         },
         {
-          "n": 100,
-          "title": "M4.5.6.2 — deferred builder gaps: dynamic REST path replacement (G2) + DLQ capture hardening (G4)",
-          "status": "Done"
-        },
-        {
           "n": 92,
           "title": "M4.5.7 Emit environment-extension declarations for connection fields",
           "status": "Done"
@@ -311,15 +306,15 @@
     {
       "id": "M5",
       "title": "API Variants",
-      "status": "In Progress",
-      "start": "2026-07-06",
-      "due": "2026-07-17",
+      "status": "Todo",
+      "start": "2026-07-20",
+      "due": "2026-07-31",
       "summary": "Generalize the scheduled sync core into a verified sync_pipeline: a PipelineSpec stage model with a semantic validator, with database_to_api_sync preserved as an adapter over it. Add a REST fetch/source primitive, database write support, and inner‑object preservation hardening, then ship api_to_api_sync and api_to_database_sync presets with live QA.",
       "items": [
         {
           "n": 11,
           "title": "M5: API Variants",
-          "status": "In Progress"
+          "status": "Todo"
         },
         {
           "n": 68,
@@ -383,8 +378,8 @@
       "title": "Event and Listener Variants",
       "title_override": "Event & Listener Variants",
       "status": "Todo",
-      "start": "2026-07-27",
-      "due": "2026-07-31",
+      "start": "2026-08-10",
+      "due": "2026-08-14",
       "summary": "Event-based integrations after scheduled syncs are stable: HTTP listener source primitive, listener archetypes (HTTP->DB, HTTP->REST), inbound validation, listener deploy/start/verify, API-tier preflight, route-collision checks, and listener-specific runtime invariants.",
       "items": [
         {
@@ -398,8 +393,8 @@
       "id": "M7",
       "title": "Discovery Tools",
       "status": "Todo",
-      "start": "2026-08-03",
-      "due": "2026-08-07",
+      "start": "2026-08-17",
+      "due": "2026-08-21",
       "summary": "Read-only discovery for source and target facts: OpenAPI, SOAP WSDL, OData metadata, DB schema, profile inference, migration drafts, reusable live connection suggestions, and Boomi Marketplace recipe search for reference patterns.",
       "items": [
         {
@@ -438,8 +433,8 @@
       "id": "M8",
       "title": "Archetype Composition",
       "status": "Todo",
-      "start": "2026-07-20",
-      "due": "2026-07-24",
+      "start": "2026-08-03",
+      "due": "2026-08-07",
       "summary": "Compose stable standalone archetypes into larger integrations with contract validation between parts. Composed output deploys and tests through normal orchestration.",
       "items": [
         {
@@ -501,6 +496,72 @@
           "n": 102,
           "title": "M9.8 Enforce integration-build basics as mechanical builder guards (connection dedup, extensions, naming, graph/shape lints)",
           "status": "Done"
+        }
+      ]
+    },
+    {
+      "id": "M10",
+      "title": ": Process Shape Coverage",
+      "title_override": "Process Shape Coverage",
+      "status": "In Progress",
+      "start": "2026-07-06",
+      "due": "2026-07-17",
+      "summary": "Close the process-shape coverage gap so the builder can emit the non-connector shapes real integrations actually use, grounded in a census of all 85 live processes: Data Process, Return Documents, Exception/Throw, Document Cache retrieve/remove, Flow Control, Branch, and Decision (with loops). Each shape ships as one PR spanning emitter, graph verifier, spec, protocol, patterns, doctrine, and byte-exact golden-XML tests, with a doctrine→emitter consistency guard keeping the set self-policing. Sequenced before the rest of M5 while still attaching to its sync_pipeline seam; unblocks M8 (Branch).",
+      "items": [
+        {
+          "n": 103,
+          "title": "M10: Close process-shape coverage gaps",
+          "status": "In Progress"
+        },
+        {
+          "n": 104,
+          "title": "M10.0 Add control-flow edge contract to PipelineSpec (typed edges + cycle classification)",
+          "status": "Done"
+        },
+        {
+          "n": 105,
+          "title": "M10.1 Add doctrine->emitter consistency test for emittable shapes",
+          "status": "Todo"
+        },
+        {
+          "n": 106,
+          "title": "M10.2 Add Data Process shape coverage (standalone, process-level)",
+          "status": "Todo"
+        },
+        {
+          "n": 107,
+          "title": "M10.3 Add Return Documents shape coverage",
+          "status": "Todo"
+        },
+        {
+          "n": 108,
+          "title": "M10.4 Add Exception / Throw shape coverage",
+          "status": "Todo"
+        },
+        {
+          "n": 109,
+          "title": "M10.5 Add Document Cache Retrieve shape coverage",
+          "status": "Todo"
+        },
+        {
+          "n": 110,
+          "title": "M10.6 Add Document Cache Remove shape coverage",
+          "status": "Todo"
+        },
+        {
+          "n": 111,
+          "title": "M10.7 Add Flow Control shape coverage",
+          "status": "Todo"
+        },
+        {
+          "n": 112,
+          "title": "M10.8 Add Branch shape coverage (N-way fan-out)",
+          "status": "Todo"
+        },
+        {
+          "n": 113,
+          "title": "M10.9 Add Decision shape coverage (conditional edges) + loops",
+          "status": "Todo"
         }
       ]
     }
