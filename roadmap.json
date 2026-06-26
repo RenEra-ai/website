@@ -329,17 +329,17 @@
         {
           "n": 70,
           "title": "M5.2 Add sync_pipeline process builder for verified linear flows",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 71,
           "title": "M5.3 Preserve database_to_api_sync as adapter over sync_pipeline",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 72,
           "title": "M5.4 Add REST fetch/source primitive",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 96,
@@ -529,6 +529,11 @@
           "status": "Done"
         },
         {
+          "n": 115,
+          "title": "M10.2a Add Data Process Split/Combine Documents operations",
+          "status": "Done"
+        },
+        {
           "n": 107,
           "title": "M10.3 Add Return Documents shape coverage",
           "status": "Done"
@@ -536,17 +541,17 @@
         {
           "n": 108,
           "title": "M10.4 Add Exception / Throw shape coverage",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 109,
           "title": "M10.5 Add Document Cache Retrieve shape coverage",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 110,
           "title": "M10.6 Add Document Cache Remove shape coverage",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 111,
@@ -556,12 +561,12 @@
         {
           "n": 112,
           "title": "M10.8 Add Branch shape coverage (N-way fan-out)",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 113,
           "title": "M10.9 Add Decision shape coverage (conditional edges) + loops",
-          "status": "Todo"
+          "status": "Done"
         }
       ]
     }
