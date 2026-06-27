@@ -349,7 +349,7 @@
         {
           "n": 50,
           "title": "M5.5 Complete preservation hardening and REST conditional emission",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 32,
@@ -556,7 +556,7 @@
         {
           "n": 111,
           "title": "M10.7 Add Flow Control shape coverage",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 112,
