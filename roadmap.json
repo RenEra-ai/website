@@ -306,7 +306,7 @@
     {
       "id": "M5",
       "title": "API Variants",
-      "status": "Todo",
+      "status": "In Progress",
       "start": "2026-07-20",
       "due": "2026-07-31",
       "summary": "Generalize the scheduled sync core into a verified sync_pipeline: a PipelineSpec stage model with a semantic validator, with database_to_api_sync preserved as an adapter over it. Add a REST fetch/source primitive, database write support, and inner‑object preservation hardening, then ship api_to_api_sync and api_to_database_sync presets with live QA.",
@@ -314,7 +314,7 @@
         {
           "n": 11,
           "title": "M5: API Variants",
-          "status": "Todo"
+          "status": "In Progress"
         },
         {
           "n": 68,
@@ -344,7 +344,7 @@
         {
           "n": 96,
           "title": "M5.4a Add typed REST runtime binding model for connector step dynamicProperties",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 50,
@@ -503,7 +503,7 @@
       "id": "M10",
       "title": ": Process Shape Coverage",
       "title_override": "Process Shape Coverage",
-      "status": "In Progress",
+      "status": "Done",
       "start": "2026-07-06",
       "due": "2026-07-17",
       "summary": "Close the process-shape coverage gap so the builder can emit the non-connector shapes real integrations actually use, grounded in a census of all 85 live processes: Data Process, Return Documents, Exception/Throw, Document Cache retrieve/remove, Flow Control, Branch, and Decision (with loops). Each shape ships as one PR spanning emitter, graph verifier, spec, protocol, patterns, doctrine, and byte-exact golden-XML tests, with a doctrine→emitter consistency guard keeping the set self-policing. Sequenced before the rest of M5 while still attaching to its sync_pipeline seam; unblocks M8 (Branch).",
@@ -511,7 +511,7 @@
         {
           "n": 103,
           "title": "M10: Close process-shape coverage gaps",
-          "status": "In Progress"
+          "status": "Done"
         },
         {
           "n": 104,
