@@ -374,7 +374,7 @@
         {
           "n": 126,
           "title": "M5.10 Add Web Services SOAP Client connector support",
-          "status": "Todo"
+          "status": "Done"
         }
       ]
     },
@@ -501,11 +501,6 @@
           "n": 102,
           "title": "M9.8 Enforce integration-build basics as mechanical builder guards (connection dedup, extensions, naming, graph/shape lints)",
           "status": "Done"
-        },
-        {
-          "n": 130,
-          "title": "M9.9 Process-graph verifier: flag an inbound edge targeting the START shape (START_SHAPE_HAS_INBOUND)",
-          "status": "Todo"
         }
       ]
     },
