@@ -306,7 +306,7 @@
     {
       "id": "M5",
       "title": "API Variants",
-      "status": "In Progress",
+      "status": "Done",
       "start": "2026-07-20",
       "due": "2026-07-31",
       "summary": "Generalize the scheduled sync core into a verified sync_pipeline: a PipelineSpec stage model with a semantic validator, with database_to_api_sync preserved as an adapter over it. Add a REST fetch/source primitive, database write support, and inner‑object preservation hardening, then ship api_to_api_sync and api_to_database_sync presets with live QA.",
@@ -314,7 +314,7 @@
         {
           "n": 11,
           "title": "M5: API Variants",
-          "status": "In Progress"
+          "status": "Done"
         },
         {
           "n": 68,
@@ -579,7 +579,7 @@
       "id": "M11",
       "title": ": Cache + Dynamic Properties Authoring",
       "title_override": "Cache & Dynamic Properties Authoring",
-      "status": "Todo",
+      "status": "Done",
       "start": "2026-07-20",
       "due": "2026-07-24",
       "summary": "Promote Document Cache and Dynamic Properties from raw process shapes into first-class authoring intents, grounded in a full census of how live integrations use them. Adds an authoring vocabulary for cache, property, and enrichment intents; generalizes Dynamic Document Properties and adds Dynamic Process Properties (Set Properties) support; and ships semantic Document Cache put/get/join authoring. Lineage, scope, and cardinality validation keep cache and property flows sound, with research evidence wired into the planner and design surfaces and cross-branch composed examples, fixtures, and live QA proving it end-to-end.",
@@ -587,37 +587,37 @@
         {
           "n": 118,
           "title": "M11: Promote Document Cache + Dynamic Properties into authoring layer",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 119,
           "title": "M11.0 Full cache/property usage census and design rationale",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 120,
           "title": "M11.1 Add authoring vocabulary for cache/property/enrichment intents",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 121,
           "title": "M11.2 Generalize DDP and add DPP Set Properties support",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 122,
           "title": "M11.3 Add semantic Document Cache put/get/join authoring",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 123,
           "title": "M11.4 Add cache/property lineage, scope, and cardinality validation",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 124,
           "title": "M11.5 Wire research evidence into planner/design surfaces",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 125,
