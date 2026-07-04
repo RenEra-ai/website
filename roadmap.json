@@ -437,7 +437,7 @@
     {
       "id": "M8",
       "title": "Archetype Composition",
-      "status": "Todo",
+      "status": "Done",
       "start": "2026-07-27",
       "due": "2026-07-31",
       "summary": "Compose stable standalone archetypes into larger integrations with contract validation between parts. Composed output deploys and tests through normal orchestration.",
@@ -445,7 +445,7 @@
         {
           "n": 14,
           "title": "M8: Archetype Composition",
-          "status": "Todo"
+          "status": "Done"
         }
       ]
     },
@@ -622,12 +622,12 @@
         {
           "n": 125,
           "title": "M11.6 Cross-branch composed examples, fixtures, and live QA",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 131,
           "title": "M11.7 Add a Process Property (processproperty) component builder to all layers",
-          "status": "Todo"
+          "status": "Done"
         }
       ]
     }
