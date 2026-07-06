@@ -382,7 +382,7 @@
       "id": "M6",
       "title": "Event and Listener Variants",
       "title_override": "Event & Listener Variants",
-      "status": "Todo",
+      "status": "Done",
       "start": "2026-08-03",
       "due": "2026-08-07",
       "summary": "Event-based integrations after scheduled syncs are stable: HTTP listener source primitive, listener archetypes (HTTP->DB, HTTP->REST), inbound validation, listener deploy/start/verify, API-tier preflight, route-collision checks, and listener-specific runtime invariants.",
@@ -390,12 +390,12 @@
         {
           "n": 12,
           "title": "M6: Event and Listener Variants",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 133,
           "title": "M6.1 Add API Service (webservice) component support to all layers",
-          "status": "Todo"
+          "status": "Done"
         }
       ]
     },
