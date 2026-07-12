@@ -402,7 +402,7 @@
     {
       "id": "M7",
       "title": "Discovery Tools",
-      "status": "Todo",
+      "status": "Done",
       "start": "2026-08-10",
       "due": "2026-08-21",
       "summary": "Read-only discovery for source and target facts: OpenAPI, SOAP WSDL, OData metadata, DB schema, profile inference, migration drafts, reusable live connection suggestions, and Boomi Marketplace recipe search for reference patterns.",
@@ -410,7 +410,7 @@
         {
           "n": 13,
           "title": "M7: Discovery Tools",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 47,
@@ -430,12 +430,12 @@
         {
           "n": 84,
           "title": "M7.4 Add read-only Boomi Marketplace recipe search",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 95,
           "title": "M7.5 Add live existing-profile index discovery and map validation",
-          "status": "Todo"
+          "status": "Done"
         }
       ]
     },
