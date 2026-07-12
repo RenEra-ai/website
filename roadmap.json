@@ -307,8 +307,8 @@
       "id": "M5",
       "title": "API Variants",
       "status": "Done",
-      "start": "2026-07-20",
-      "due": "2026-07-31",
+      "start": "2026-06-04",
+      "due": "2026-07-02",
       "summary": "Generalize the scheduled sync core into a verified sync_pipeline: a PipelineSpec stage model with a semantic validator, with database_to_api_sync preserved as an adapter over it. Add a REST fetch/source primitive, database write support, and inner‑object preservation hardening, then ship api_to_api_sync and api_to_database_sync presets with live QA.",
       "items": [
         {
@@ -383,8 +383,8 @@
       "title": "Event and Listener Variants",
       "title_override": "Event & Listener Variants",
       "status": "Done",
-      "start": "2026-08-03",
-      "due": "2026-08-07",
+      "start": "2026-07-01",
+      "due": "2026-07-05",
       "summary": "Event-based integrations after scheduled syncs are stable: HTTP listener source primitive, listener archetypes (HTTP->DB, HTTP->REST), inbound validation, listener deploy/start/verify, API-tier preflight, route-collision checks, and listener-specific runtime invariants.",
       "items": [
         {
@@ -403,8 +403,8 @@
       "id": "M7",
       "title": "Discovery Tools",
       "status": "Done",
-      "start": "2026-08-10",
-      "due": "2026-08-21",
+      "start": "2026-06-01",
+      "due": "2026-07-12",
       "summary": "Read-only discovery for source and target facts: OpenAPI, SOAP WSDL, OData metadata, DB schema, profile inference, migration drafts, reusable live connection suggestions, and Boomi Marketplace recipe search for reference patterns.",
       "items": [
         {
@@ -443,8 +443,8 @@
       "id": "M8",
       "title": "Archetype Composition",
       "status": "Done",
-      "start": "2026-07-27",
-      "due": "2026-07-31",
+      "start": "2026-06-29",
+      "due": "2026-07-03",
       "summary": "Compose stable standalone archetypes into larger integrations with contract validation between parts. Composed output deploys and tests through normal orchestration.",
       "items": [
         {
@@ -514,8 +514,8 @@
       "title": ": Process Shape Coverage",
       "title_override": "Process Shape Coverage",
       "status": "Done",
-      "start": "2026-07-06",
-      "due": "2026-07-17",
+      "start": "2026-06-16",
+      "due": "2026-07-10",
       "summary": "Close the process-shape coverage gap so the builder can emit the non-connector shapes real integrations actually use, grounded in a census of all 85 live processes: Data Process, Return Documents, Exception/Throw, Document Cache retrieve/remove, Flow Control, Branch, and Decision (with loops). Each shape ships as one PR spanning emitter, graph verifier, spec, protocol, patterns, doctrine, and byte-exact golden-XML tests, with a doctrine→emitter consistency guard keeping the set self-policing. Sequenced before the rest of M5 while still attaching to its sync_pipeline seam; unblocks M8 (Branch).",
       "items": [
         {
@@ -585,8 +585,8 @@
       "title": ": Cache + Dynamic Properties Authoring",
       "title_override": "Cache & Dynamic Properties Authoring",
       "status": "Done",
-      "start": "2026-07-20",
-      "due": "2026-07-24",
+      "start": "2026-06-29",
+      "due": "2026-07-03",
       "summary": "Promote Document Cache and Dynamic Properties from raw process shapes into first-class authoring intents, grounded in a full census of how live integrations use them. Adds an authoring vocabulary for cache, property, and enrichment intents; generalizes Dynamic Document Properties and adds Dynamic Process Properties (Set Properties) support; and ships semantic Document Cache put/get/join authoring. Lineage, scope, and cardinality validation keep cache and property flows sound, with research evidence wired into the planner and design surfaces and cross-branch composed examples, fixtures, and live QA proving it end-to-end.",
       "items": [
         {
