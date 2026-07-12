@@ -635,6 +635,87 @@
           "status": "Done"
         }
       ]
+    },
+    {
+      "id": "M12",
+      "title": ": Canonical Integration Authoring IR and Process Compiler Consolidation",
+      "title_override": "Canonical Authoring IR & Process Compiler",
+      "status": "In Progress",
+      "start": "2026-08-17",
+      "due": "2026-10-30",
+      "summary": "Collapse the overlapping process representations — flow_sequence, PipelineSpec, archetype slots and composition parts — into one strict, versioned ProcessIRV1: a typed authoring AST over a compiler-owned control-flow graph. IntegrationSpecV1 stays the component materialization plan, legacy inputs become adapters held to golden parity, and new capability lands only in the IR. Adds a verified process-emitter registry, first-class ConnectorCall with mixed linear flow, rich Branch and Decision bodies, scoped error handling with retry/idempotency safety, semantic validation unified on the IR, capability-gated SystemTopologySpecV1 planning, and typed executable recipes — then migrates the MCP authoring, planning, compile and verify surfaces onto it with live QA.",
+      "items": [
+        {
+          "n": 134,
+          "title": "M12: Canonical Integration Authoring IR and Process Compiler Consolidation",
+          "status": "In Progress"
+        },
+        {
+          "n": 135,
+          "title": "M12.0 — Architecture ADR and compatibility invariants",
+          "status": "Todo"
+        },
+        {
+          "n": 136,
+          "title": "M12.1 — Promote flow_sequence into strict ProcessIRV1 models",
+          "status": "Todo"
+        },
+        {
+          "n": 137,
+          "title": "M12.2 — Add compiler-owned internal CFG and lowering contracts",
+          "status": "Todo"
+        },
+        {
+          "n": 138,
+          "title": "M12.3 — Extract a verified process-emitter registry",
+          "status": "Todo"
+        },
+        {
+          "n": 139,
+          "title": "M12.4 — Add legacy adapters and golden parity",
+          "status": "Todo"
+        },
+        {
+          "n": 140,
+          "title": "M12.5 — Add first-class ConnectorCall and mixed linear flow",
+          "status": "Todo"
+        },
+        {
+          "n": 141,
+          "title": "M12.6 — Add rich Branch and Decision bodies",
+          "status": "Todo"
+        },
+        {
+          "n": 142,
+          "title": "M12.7 — Add scoped error handling and retry/idempotency safety",
+          "status": "Todo"
+        },
+        {
+          "n": 143,
+          "title": "M12.8 — Unify semantic validation on ProcessIRV1",
+          "status": "Todo"
+        },
+        {
+          "n": 144,
+          "title": "M12.9 — Add capability-gated SystemTopologySpecV1 planning",
+          "status": "Todo"
+        },
+        {
+          "n": 145,
+          "title": "M12.10 — Add typed executable recipe contributions",
+          "status": "Todo"
+        },
+        {
+          "n": 146,
+          "title": "M12.11 — Update MCP authoring, planning, compile, and verify surfaces",
+          "status": "Todo"
+        },
+        {
+          "n": 147,
+          "title": "M12.12 — Complete migration, documentation, examples, and live QA",
+          "status": "Todo"
+        }
+      ]
     }
   ]
 }
