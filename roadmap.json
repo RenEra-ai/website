@@ -688,7 +688,7 @@
         {
           "n": 142,
           "title": "M12.7 — Add scoped error handling and retry/idempotency safety",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 143,
