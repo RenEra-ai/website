@@ -703,6 +703,11 @@
         {
           "n": 145,
           "title": "M12.10 — Add typed executable recipe contributions",
+          "status": "Done"
+        },
+        {
+          "n": 149,
+          "title": "M12.10 follow-ups: deferred non-blocking items from #145",
           "status": "Todo"
         },
         {
