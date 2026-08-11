@@ -673,7 +673,7 @@
         {
           "n": 139,
           "title": "M12.4 — Add legacy adapters and golden parity",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 140,
@@ -706,18 +706,18 @@
           "status": "Done"
         },
         {
-          "n": 149,
-          "title": "M12.10 follow-ups: deferred non-blocking items from #145",
-          "status": "Todo"
-        },
-        {
           "n": 146,
           "title": "M12.11 — Update MCP authoring, planning, compile, and verify surfaces",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 147,
           "title": "M12.12 — Complete migration, documentation, examples, and live QA",
+          "status": "Todo"
+        },
+        {
+          "n": 149,
+          "title": "M12 follow-ups (precondition-gated, not a milestone step) — deferred items from #145",
           "status": "Todo"
         }
       ]
