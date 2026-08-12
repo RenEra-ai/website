@@ -711,13 +711,63 @@
           "status": "Done"
         },
         {
-          "n": 147,
-          "title": "M12.12 — Complete migration, documentation, examples, and live QA",
+          "n": 149,
+          "title": "M12.12 — Pre-deletion legacy reachability inventory and allowlist baseline (splits #147)",
           "status": "Todo"
         },
         {
-          "n": 149,
-          "title": "M12 follow-ups (precondition-gated, not a milestone step) — deferred items from #145",
+          "n": 152,
+          "title": "M12.13 — Endgame verification gate automation and Python 3.11 CI",
+          "status": "Todo"
+        },
+        {
+          "n": 151,
+          "title": "M12.14 — Neutral extraction, parity oracle, and reachability freeze for flow_sequence",
+          "status": "Todo"
+        },
+        {
+          "n": 153,
+          "title": "M12.15 — Canonical ProcessIR component materialization and direct apply (T1)",
+          "status": "Todo"
+        },
+        {
+          "n": 154,
+          "title": "M12.16 — ProcessIR grammar and effect foundation (T2 + T8)",
+          "status": "Todo"
+        },
+        {
+          "n": 155,
+          "title": "M12.17 — Connector dynamic path and connector/replay contracts (T3 + T6)",
+          "status": "Todo"
+        },
+        {
+          "n": 156,
+          "title": "M12.18 — Notify and recovery subprocess semantics (T4 + T5)",
+          "status": "Todo"
+        },
+        {
+          "n": 157,
+          "title": "M12.19 — Authoring envelope and governance completion (T9 remainder)",
+          "status": "Todo"
+        },
+        {
+          "n": 158,
+          "title": "M12.20 — Canonical WSS listener entry and materialization (T7)",
+          "status": "Todo"
+        },
+        {
+          "n": 159,
+          "title": "M12.21 — Canonical recipe and composition migration (T10 + T11)",
+          "status": "Todo"
+        },
+        {
+          "n": 160,
+          "title": "M12.22 — Delete the legacy semantic shell (final cutover)",
+          "status": "Todo"
+        },
+        {
+          "n": 147,
+          "title": "M12.23 — Post-deletion documentation, examples, capability matrix, and live QA closeout",
           "status": "Todo"
         }
       ]
