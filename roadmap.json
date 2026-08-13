@@ -716,6 +716,11 @@
           "status": "Todo"
         },
         {
+          "n": 163,
+          "title": "M12.12 follow-up — bounded scope-model limits deferred from #149",
+          "status": "Todo"
+        },
+        {
           "n": 152,
           "title": "M12.13 — Endgame verification gate automation and Python 3.11 CI",
           "status": "Todo"
