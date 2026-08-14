@@ -713,11 +713,11 @@
         {
           "n": 149,
           "title": "M12.12 — Pre-deletion legacy reachability inventory and allowlist baseline (splits #147)",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 163,
-          "title": "M12.12 follow-up — bounded scope-model limits deferred from #149",
+          "title": "M12.12 follow-up (do after #159, before #160) — bounded scope-model limits deferred from #149",
           "status": "Todo"
         },
         {
