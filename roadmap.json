@@ -717,12 +717,22 @@
         },
         {
           "n": 163,
-          "title": "M12.12 follow-up (do after #159, before #160) — bounded scope-model limits deferred from #149",
+          "title": "M12.12 follow-up (do after #159 lands, before #160 starts) — bounded scope-model limits deferred from #149",
           "status": "Todo"
         },
         {
           "n": 152,
           "title": "M12.13 — Endgame verification gate automation and Python 3.11 CI",
+          "status": "Todo"
+        },
+        {
+          "n": 165,
+          "title": "M12.13 follow-up (do after #152 lands, before #159 starts) — invert golden-corpus authority so tests consume the registry",
+          "status": "Todo"
+        },
+        {
+          "n": 164,
+          "title": "M12.13 follow-up (do after #160 lands, before M12 close) — scratch removal proof uses two racing observations",
           "status": "Todo"
         },
         {
@@ -773,6 +783,11 @@
         {
           "n": 147,
           "title": "M12.23 — Post-deletion documentation, examples, capability matrix, and live QA closeout",
+          "status": "Todo"
+        },
+        {
+          "n": 162,
+          "title": "Recipe input gate (unblocked — do before #159 starts) — wrap/plain validator ban falsely rejects twelve ordinary annotation families",
           "status": "Todo"
         }
       ]
