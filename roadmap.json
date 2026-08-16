@@ -723,7 +723,7 @@
         {
           "n": 152,
           "title": "M12.13 — Endgame verification gate automation and Python 3.11 CI",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 165,
@@ -733,6 +733,21 @@
         {
           "n": 164,
           "title": "M12.13 follow-up (do after #160 lands, before M12 close) — scratch removal proof uses two racing observations",
+          "status": "Todo"
+        },
+        {
+          "n": 173,
+          "title": "M12.13 follow-up (do after #171 lands, before M12 close) — audit-record self-checks: per-ledger coverage witness and archive-scanner fixtures",
+          "status": "Todo"
+        },
+        {
+          "n": 172,
+          "title": "M12.13 follow-up (do after #171 lands, before M12 close) — required-status viability and the [skip ci] hole are undecided pending a measured ruleset experiment",
+          "status": "Todo"
+        },
+        {
+          "n": 171,
+          "title": "M12.13 follow-up — gate cannot run on a scratch branch: no non-PR trigger (push: scratch/** + ci --base)",
           "status": "Todo"
         },
         {
