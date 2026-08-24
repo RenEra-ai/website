@@ -751,6 +751,11 @@
           "status": "Todo"
         },
         {
+          "n": 179,
+          "title": "M12.16 follow-up — thread literal profile indexes into the effect gate",
+          "status": "Todo"
+        },
+        {
           "n": 155,
           "title": "M12.17 — Connector dynamic path and connector/replay contracts (T3 + T6)",
           "status": "Todo"
