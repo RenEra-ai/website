@@ -748,12 +748,7 @@
         {
           "n": 154,
           "title": "M12.16 — ProcessIR grammar and effect foundation (T2 + T8)",
-          "status": "Todo"
-        },
-        {
-          "n": 179,
-          "title": "M12.16 follow-up — thread literal profile indexes into the effect gate",
-          "status": "Todo"
+          "status": "Done"
         },
         {
           "n": 155,
