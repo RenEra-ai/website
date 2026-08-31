@@ -791,6 +791,38 @@
           "status": "Done"
         }
       ]
+    },
+    {
+      "id": "M13",
+      "title": "Existing Integration Lift, Semantic Refactoring, and Safe Round-Trip Apply",
+      "title_override": "Existing Integration Lift & Safe Round-Trip Apply",
+      "status": "Todo",
+      "start": null,
+      "due": null,
+      "summary": "Add the reverse direction to M12's forward authoring path: read an existing Boomi process, lift its supported semantics into canonical ProcessIR, and apply typed changes back to the same components. Every region is classified as modeled, partial, opaque or blocked, so imported shape identity, layout and unmodeled XML are preserved rather than guessed at, and provenance stays outside ProcessIR. Snapshot-bound anchors, typed semantic patch operations, a durable component binding ledger revalidated against live Boomi state, and a versioned XML semantic comparator carry the Branch-leg clone, modify and insert slice end to end — a stale process raises a typed conflict instead of creating a duplicate, and readback proves the intended change landed with no unrelated semantic delta.",
+      "items": [
+        {
+          "n": 182,
+          "title": "M13: Existing Integration Lift, Semantic Refactoring, and Safe Round-Trip Apply",
+          "status": "Todo"
+        }
+      ]
+    },
+    {
+      "id": "M14",
+      "title": "Boomi Runtime Observability Bridge — OTLP Ingestion, ProcessIR Correlation, and Evidence-Grounded Diagnostics",
+      "title_override": "Runtime Observability Bridge & Evidence-Grounded Diagnostics",
+      "status": "Todo",
+      "start": null,
+      "due": null,
+      "summary": "Put runtime evidence next to design intent. A dedicated OTLP/gRPC ingress — deployed and scaled apart from the MCP request path — receives traces, metrics and opt-in sanitized logs from a customer-managed Atom over a tenant-bound machine credential, with redaction, quotas and retention enforced before anything is stored. A prepare, apply and verify workflow configures runtime observability settings without displacing an existing backend, and normalized evidence models join Platform API execution records with trace trees, runtime metric windows and M12/M13 semantic nodes under explicit correlation confidence and coverage reporting. The monitoring and troubleshooting surfaces then explain a slow or failed execution from cited evidence — queue wait versus connector latency — while telemetry stays observation, never authority to mutate an integration.",
+      "items": [
+        {
+          "n": 183,
+          "title": "M14: Boomi Runtime Observability Bridge — OTLP Ingestion, ProcessIR Correlation, and Evidence-Grounded Diagnostics",
+          "status": "Todo"
+        }
+      ]
     }
   ]
 }
