@@ -786,6 +786,16 @@
           "status": "Todo"
         },
         {
+          "n": 184,
+          "title": "M12.24 — ProcessIR native document-sequence composition and non-returning staged workflows (bridge A; after #158, before #159)",
+          "status": "Todo"
+        },
+        {
+          "n": 185,
+          "title": "M12.25 — ProcessIR local error scopes and staged outcomes for native sequences (bridge B; after M12.24)",
+          "status": "Todo"
+        },
+        {
           "n": 162,
           "title": "Recipe input gate (unblocked — do before #159 starts) — wrap/plain validator ban falsely rejects twelve ordinary annotation families",
           "status": "Done"
