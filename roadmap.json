@@ -791,6 +791,11 @@
           "status": "Todo"
         },
         {
+          "n": 186,
+          "title": "M12.24 follow-up: entry-document and later-leg property reads across a process call (after #184, before #159)",
+          "status": "Todo"
+        },
+        {
           "n": 185,
           "title": "M12.25 — ProcessIR local error scopes and staged outcomes for native sequences (bridge B; after M12.24)",
           "status": "Todo"
