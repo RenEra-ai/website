@@ -786,11 +786,6 @@
           "status": "Todo"
         },
         {
-          "n": 184,
-          "title": "M12.24 — ProcessIR native document-sequence composition and non-returning staged workflows (bridge A; after #158, before #159)",
-          "status": "Todo"
-        },
-        {
           "n": 186,
           "title": "M12.24 follow-up: entry-document and later-leg property reads across a process call (after #184, before #159)",
           "status": "Todo"
