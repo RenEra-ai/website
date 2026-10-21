@@ -801,6 +801,11 @@
           "status": "Todo"
         },
         {
+          "n": 189,
+          "title": "M12.26 — One connector capability authority for both dialects: close the fail-open source/target endpoint lowering",
+          "status": "Todo"
+        },
+        {
           "n": 162,
           "title": "Recipe input gate (unblocked — do before #159 starts) — wrap/plain validator ban falsely rejects twelve ordinary annotation families",
           "status": "Done"
