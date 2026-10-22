@@ -786,11 +786,6 @@
           "status": "Todo"
         },
         {
-          "n": 186,
-          "title": "M12.24 follow-up: entry-document and later-leg property reads across a process call (after #184, before #159)",
-          "status": "Todo"
-        },
-        {
           "n": 187,
           "title": "M12.24 follow-up: a child's cache contents cross a process call as no proved profile (after #186, before #159)",
           "status": "Todo"
@@ -803,6 +798,11 @@
         {
           "n": 189,
           "title": "M12.26 — One connector capability authority for both dialects: close the fail-open source/target endpoint lowering",
+          "status": "Todo"
+        },
+        {
+          "n": 197,
+          "title": "M12.27 — Decision operands on process-property ids never resolve: emit the process-parameter form or refuse them",
           "status": "Todo"
         },
         {
