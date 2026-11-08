@@ -642,7 +642,7 @@
       "title_override": "Canonical Authoring IR & Process Compiler",
       "status": "In Progress",
       "start": "2026-08-17",
-      "due": "2026-10-30",
+      "due": "2026-12-18",
       "summary": "Collapse the overlapping process representations — flow_sequence, PipelineSpec, archetype slots and composition parts — into one strict, versioned ProcessIRV1: a typed authoring AST over a compiler-owned control-flow graph. IntegrationSpecV1 stays the component materialization plan, legacy inputs become adapters held to golden parity, and new capability lands only in the IR. Adds a verified process-emitter registry, first-class ConnectorCall with mixed linear flow, rich Branch and Decision bodies, scoped error handling with retry/idempotency safety, semantic validation unified on the IR, capability-gated SystemTopologySpecV1 planning, and typed executable recipes — then migrates the MCP authoring, planning, compile and verify surfaces onto it with live QA.",
       "items": [
         {
@@ -813,12 +813,73 @@
       ]
     },
     {
+      "id": "M12.5",
+      "title": "ProcessIR Coverage Expansion",
+      "title_override": "ProcessIR Coverage Expansion",
+      "status": "Todo",
+      "start": "2027-01-04",
+      "due": "2027-01-29",
+      "summary": "Widen what the canonical ProcessIR can express once M12's cutover lands: listener responses, error scopes beyond local Try/Catch, more connector families, typed property sources and parameters, Notify outside a catch, returning Process Calls, pack-level deploys of several entry roots, and design-review lints — plus server-side canvas Arrange so every generated process opens with Boomi's own Auto Format layout.",
+      "items": [
+        {
+          "n": 198,
+          "title": "M12.5: ProcessIR Coverage Expansion",
+          "status": "Todo"
+        },
+        {
+          "n": 176,
+          "title": "Process Call return-path late binding for returning subprocesses",
+          "status": "Todo"
+        },
+        {
+          "n": 188,
+          "title": "Server-side canvas Arrange: write every process with Boomi's own Auto Format layout",
+          "status": "Todo"
+        },
+        {
+          "n": 190,
+          "title": "Error scopes beyond #185: call-protecting Try/Catch, Try/Catch and exception in Data Passthrough roots, connector-plus-call mixing for a waited passthrough child, recovery-call property prefixes and record-and-continue recovery calls",
+          "status": "Todo"
+        },
+        {
+          "n": 191,
+          "title": "Listener responses: return_documents in listener flows and control bodies, listener guards and error scope, listener-supplied properties, listener-to-child calls, persist refusal under a listener",
+          "status": "Todo"
+        },
+        {
+          "n": 192,
+          "title": "Connector family rows for connector_call: OEM/OpenAPI family, REST DELETE, HTTP client, mail, disk",
+          "status": "Todo"
+        },
+        {
+          "n": 193,
+          "title": "ProcessIR design-review lints, a derived request design view, and secret-named property rules",
+          "status": "Todo"
+        },
+        {
+          "n": 194,
+          "title": "Property sources and parameters: execution and date sources, the defined-property source, a distinct current-document source, tracked connector properties outside a catch, message and connector-call parameters",
+          "status": "Todo"
+        },
+        {
+          "n": 195,
+          "title": "Notify outside a catch body, with typed parameters",
+          "status": "Todo"
+        },
+        {
+          "n": 196,
+          "title": "Pack-level authoring: deploy a set of entry roots (non-atomic), entry-root derivation, folder full-path placement, DPP extension declarations, bounded execution options",
+          "status": "Todo"
+        }
+      ]
+    },
+    {
       "id": "M13",
-      "title": "Existing Integration Lift, Semantic Refactoring, and Safe Round-Trip Apply",
+      "title": "Existing Integration Lift",
       "title_override": "Existing Integration Lift & Safe Round-Trip Apply",
       "status": "Todo",
-      "start": null,
-      "due": null,
+      "start": "2027-02-01",
+      "due": "2027-03-26",
       "summary": "Add the reverse direction to M12's forward authoring path: read an existing Boomi process, lift its supported semantics into canonical ProcessIR, and apply typed changes back to the same components. Every region is classified as modeled, partial, opaque or blocked, so imported shape identity, layout and unmodeled XML are preserved rather than guessed at, and provenance stays outside ProcessIR. Snapshot-bound anchors, typed semantic patch operations, a durable component binding ledger revalidated against live Boomi state, and a versioned XML semantic comparator carry the Branch-leg clone, modify and insert slice end to end — a stale process raises a typed conflict instead of creating a duplicate, and readback proves the intended change landed with no unrelated semantic delta.",
       "items": [
         {
@@ -830,11 +891,11 @@
     },
     {
       "id": "M14",
-      "title": "Boomi Runtime Observability Bridge — OTLP Ingestion, ProcessIR Correlation, and Evidence-Grounded Diagnostics",
+      "title": "Runtime Observability Bridge",
       "title_override": "Runtime Observability Bridge & Evidence-Grounded Diagnostics",
       "status": "Todo",
-      "start": null,
-      "due": null,
+      "start": "2027-03-29",
+      "due": "2027-05-21",
       "summary": "Put runtime evidence next to design intent. A dedicated OTLP/gRPC ingress — deployed and scaled apart from the MCP request path — receives traces, metrics and opt-in sanitized logs from a customer-managed Atom over a tenant-bound machine credential, with redaction, quotas and retention enforced before anything is stored. A prepare, apply and verify workflow configures runtime observability settings without displacing an existing backend, and normalized evidence models join Platform API execution records with trace trees, runtime metric windows and M12/M13 semantic nodes under explicit correlation confidence and coverage reporting. The monitoring and troubleshooting surfaces then explain a slow or failed execution from cited evidence — queue wait versus connector latency — while telemetry stays observation, never authority to mutate an integration.",
       "items": [
         {

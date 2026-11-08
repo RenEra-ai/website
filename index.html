@@ -327,7 +327,12 @@
 
         function render(filter) {
           timeline.innerHTML = '';
-          milestones.forEach(function (m, idx) {
+          // Stagger from the position in the *rendered* list. Using the index
+          // in the full milestone array would leave a filtered view (e.g.
+          // Upcoming, whose first card sits at index 14) invisible for most of
+          // a second, because .milestone's fadeUp animation has fill-mode both.
+          var shown = 0;
+          milestones.forEach(function (m) {
             if (filter !== 'all' && m.status !== filter) return;
 
             var doneCount = m.items.filter(function (i) { return i.status === 'Done'; }).length;
@@ -336,7 +341,7 @@
 
             var li = document.createElement('li');
             li.className = 'milestone milestone--' + statusClass(m.status);
-            li.style.setProperty('--i', idx);
+            li.style.setProperty('--i', shown++);
 
             var subItems = m.items.map(function (it) {
               var issue = issueNumber(it.n);
